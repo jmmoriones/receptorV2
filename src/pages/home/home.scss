@@ -1,0 +1,97 @@
+page-home {
+	ion-tabs{
+		.tabbar.show-tabbar{
+			background: #575756 !important;
+			.tab-button{
+				color:white;
+				ion-icon{
+					color:white;
+				}	
+			}
+		}
+	}
+	.tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+		color: #00e6ff;
+	}
+	.tabs-md .tab-button-icon{
+	    font-size: 28px !important;
+	}
+	 ion-content{
+		background-image: url("../assets/images/fondo-01.png") !important;
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		.header-home{
+			height: 30vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			p{
+				font-size: 18px;
+				text-align: center;
+				color: white;
+			}
+			.btn-scanner{
+				background: #e64a19;
+				width: 60%;
+				padding: 1.2em 0px;
+				height: auto;
+			}
+			.pop-btn{
+				color: #00e6ff;
+				background-color: transparent;
+				position: absolute;
+				top: 0px;
+				right: 0px;
+			}
+		}
+		.item-search{
+			background-color: transparent !important;
+			padding-left: 0px;
+			width: 50%;
+			display: inline-block;
+			.input-search{
+				background: transparent;
+				color: white;
+			}
+		}
+		.transac-title{ color: white;font-size: 20px;margin: 10px 0px;}
+		.icon-search{
+			font-size: 30px;
+			color: #00e6ff;
+			margin-left: 10px;
+		}
+	 }
+	 .none-bg{
+		 background-image: none !important;
+		 height: 40vh;
+		 background-color:transparent;
+		 .scroll-content{
+			 padding: 0px !important;
+			 ion-item{
+				 background-color: transparent;
+				 padding-left: 0px;
+				 ion-avatar{
+					 img{
+						width: 80px;
+						height: 80px;
+					 }
+				 }
+				 .item-inner{
+					 ion-label{
+						 h2{font-size:20px;color:#d1d1d1;}
+						 p{font-size: 18px;color:#d1d1d1;}
+					 }
+				 }
+			 }
+		 }
+	 }
+	 .tab-home{
+		//z-index:10;
+		.tabbar{
+			opacity:1;
+		}
+	}
+}

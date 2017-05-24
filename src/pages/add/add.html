@@ -1,0 +1,42 @@
+<ion-content padding>   
+	<div class="header-home">
+        <button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
+            <ion-icon name="more"></ion-icon>
+        </button>
+		<p>Utiliza el Scanner para obtener información de los productos y generar nuevos contenidos</p>
+		<button ion-button (click)="scanBarcode()" round class="btn-scanner">Scanear</button>
+	</div>
+	<ion-item class="item-search">
+		<ion-input type="search" class="input-search"></ion-input>
+	</ion-item>
+    <ion-icon name="search" class="icon-search"></ion-icon>
+    <p class="transac-title">Transacciones recientes</p>
+	<ion-content class="none-bg">
+		<ion-list>
+            <ion-item>
+                <ion-avatar item-left>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                </ion-avatar>
+                <h2>Ultima transaccion</h2>
+                <p><ion-icon name="person"></ion-icon> Productor</p>
+                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
+            </ion-item>
+            <ion-item>
+                <ion-avatar item-left>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                </ion-avatar>
+                <h2>Ultima transaccion</h2>
+                <p><ion-icon name="person"></ion-icon> Productor</p>
+                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
+            </ion-item>
+            <ion-item>
+                <ion-avatar item-left>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                </ion-avatar>
+                <h2>Ultima transaccion</h2>
+                <p><ion-icon name="person"></ion-icon> Productor</p>
+                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
+            </ion-item>
+        </ion-list>
+	</ion-content>
+</ion-content>

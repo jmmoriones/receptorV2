@@ -1,0 +1,49 @@
+<ion-content>
+    <ion-list class="into-cedula">
+        <div class="item-search">
+            <p>Introduce el numero de cedula</p>
+            <ion-input type="search" class="input-search"></ion-input>
+            <ion-icon name="search" class="icon-search"></ion-icon>
+        </div>
+        <ion-item class="link-search" >
+            <a href="#">Buscar</a>
+        </ion-item>
+    </ion-list>
+    <ion-item class="user-info">
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-left>
+                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                </ion-avatar>
+                <h2 text-uppercase>{{user.name}}</h2>
+                <p><ion-icon name="person"></ion-icon> Productor</p>
+                <p><ion-icon name="eye"></ion-icon> Tipo de café</p>
+                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
+            </ion-item>
+        </ion-list>
+    </ion-item>
+    <ion-list class="data-complementation">
+        <h4 text-uppercase class="padd-left">Datos para completar</h4>
+        <ion-item>
+            <ion-input type="text" placeholder="Peso en kilogramos" class="border-input"></ion-input> <span>Kilogramos</span>
+        </ion-item>
+        <h4 text-uppercase class="padd-left">Tipo de empaque y peso</h4>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-input type="text" placeholder="Numero de empaques" class="border-input"></ion-input>
+                    <p text-center>Estopa</p>
+                </ion-col>
+                <ion-col>
+                    <ion-input type="text" placeholder="Numero de empaques" class="border-input"></ion-input>
+                    <p text-center>3 Rallas</p>
+                </ion-col>
+                <ion-col>
+                    <ion-input type="text" placeholder="Numero de empaques" class="border-input"></ion-input>
+                    <p text-center>Kilo</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+    <button ion-button round class="btn-scanner" (click)="goodProcess()">Generar formato</button>
+</ion-content>

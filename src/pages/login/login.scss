@@ -1,0 +1,121 @@
+page-login {
+    ion-content{
+        background-image: url("../assets/images/fondo-01.png") !important;
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        .form-login{
+            background: transparent;
+            height: 40vh;
+            .select-person{
+                background:transparent !important;
+            }
+            .item-form{
+                background-color: transparent;
+                color: #FFF;
+            }
+            .clickME{
+                padding: 10px;
+                width: 80%;
+                margin-bottom: 3%;
+                background-color: transparent;
+                color: white;
+                font-size: 20px;
+            }
+
+        }
+        .select-person{
+            background: rgba(95, 95, 95, 0.47);
+            color: #FFF;
+            text-align: center;
+            top: 0%;
+            ion-select{
+                margin: 0 auto;
+                color: white;
+                padding-top: 0px;
+                padding-bottom: 50px;
+            }
+        }
+    }
+    ion-header{
+        height: 35vh;
+        width: 100vw;
+        text-align: center;
+        position: relative;
+
+        .logo{
+            max-width: 150px;
+            margin: 0 auto;
+            padding-top: 6vh;
+        }
+    }
+    .avatar-user{
+        position: absolute;
+        bottom: -65px;
+        z-index: 10;
+        width: 100vw;
+        img{
+            width: 110px;
+            border-radius: 50%;
+        }
+        h3{
+            margin:0px;
+        }
+    }
+    .list-users{
+        background-image: inherit !important;
+        background-color: transparent !important;
+        height: 45%;
+    }
+    .hide-password{
+        display: none;
+    }
+
+
+
+    .content-home{
+		background-color: rgba(79, 79, 79, 0.55) !important;
+		border-radius: 5px;
+		padding: 5px;
+		min-height:150px;
+		border: 0px;
+        position: relative;
+        top: -7%;
+        z-index: 10;
+        height: 60vh;
+		p{
+			text-align: center;
+			font-size: 1.3em;
+			color: #ebebeb;
+			margin: 0px;
+		}
+		legend{
+			margin: 0 auto;
+			img{
+				width: 100px;
+				height: 100px;
+                border-radius: 50%;
+			}
+		}
+		ion-item{
+			background-color: transparent !important;
+			color:#ebebeb;
+			.item-inner{
+				border-bottom: 0px !important;
+				.input-wrapper{
+					ion-label{
+						display: flex;
+						align-items: center;
+					}
+				}
+			}
+			ion-icon{
+				font-size: 2em;
+				margin-right: 20px;
+			}
+		}
+		.grid{
+			color: white;
+		}
+	}
+}

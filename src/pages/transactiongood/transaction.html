@@ -1,0 +1,45 @@
+<ion-content>
+	<p class="m-top">Transacciones</p>
+	<fieldset class="content">
+		<legend>
+			<img src="./assets/images/avatar.png" alt="">
+		</legend>
+		<p>Fabian Sanchez Casura</p>
+		<p><ion-icon name="person"></ion-icon> Productor</p>
+		<ion-list>
+			<ion-item>
+				<ion-icon name="home"></ion-icon>
+				<span>Tipo de cafe</span>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="home"></ion-icon>
+				<span>Tipo de cafe</span>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="home"></ion-icon>
+				<span>Tipo de cafe</span>
+			</ion-item>
+		</ion-list>
+		<p>Tipo de empaque</p>
+		<ion-grid>
+			<ion-row>
+				<ion-col text-center>
+					<h5 color-white>Cantidad</h5>
+					<span color-white>Estopa</span>
+				</ion-col>
+				<ion-col text-center>
+					<h5 color-white>Cantidad</h5>
+					<span color-white>3 en ralla</span>
+				</ion-col>
+				<ion-col text-center>
+					<h5 color-white>Cantidad</h5>
+					<span color-white>Kilo</span>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</fieldset>
+	<div class="zone-btn">
+		<button ion-button round class="btn-scanner btn1">Editar</button>
+		<button ion-button round class="btn-scanner btn2" (click)="imprimir()">Imprimir</button>
+	</div>
+</ion-content>

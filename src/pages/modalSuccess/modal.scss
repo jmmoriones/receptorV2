@@ -1,0 +1,28 @@
+page-modal{
+	ion-content{
+		background-color: rgb(66, 66, 66) !important;
+		color: white !important;
+	    position: relative;
+    	text-align: center;
+		.scroll-content{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			button{
+			    position: absolute;
+				top: 3%;
+				right: 2%;
+				background-color: transparent;
+				color: white;
+				font-size: 30px;
+			}
+			img{
+				width: 70%;
+			}
+			p{
+				font-size: 25px;
+			}
+		}
+	}
+}

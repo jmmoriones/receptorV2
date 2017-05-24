@@ -1,0 +1,25 @@
+<ion-content>
+<form (ngSubmit)="submit(f.value)" #f="ngForm" >
+	
+  	<ion-list>
+	 	<ion-item>
+			<ion-label >Email</ion-label>
+			<ion-input type="email" name='email' [ngModel]='user.email' required></ion-input>
+    	</ion-item>
+		<ion-item>
+			<ion-label >Nombre</ion-label>
+			<ion-input type="text" name='name' [ngModel]='user.name' required></ion-input>
+    	</ion-item>
+    	<ion-item>
+			<ion-label >Cedula</ion-label>
+			<ion-input type="text" name='cedula' [ngModel]='user.cedula' required></ion-input>
+    	</ion-item>
+		<ion-item>
+    		<button ion-button  type="submit" color="secondary" [disabled]="!f.valid">Enviar</button>
+  		</ion-item>
+  	</ion-list>
+	
+  
+ </form>
+
+</ion-content>

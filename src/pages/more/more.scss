@@ -1,0 +1,73 @@
+page-more {
+    .item-search{
+        .input-search{
+            border-bottom: 1px solid #CCC;
+        }
+    }
+    ion-item{
+        background-color: transparent !important;
+        .item-inner{
+            border-bottom: 0px !important;
+            ion-label{
+                h2{font-size:20px;color:#d1d1d1;}
+                p{font-size: 18px;color:#d1d1d1;}
+            }
+        }
+        .input-wrapper{
+            ion-label{
+                margin: 0px !important;
+                ion-list{
+                    background-color: #4f4f4f !important;
+                    padding: 10px !important;
+                    margin-bottom: 8px !important;
+                }
+            }
+        }
+        ion-avatar{
+            img{
+                width: 80px !important;
+                height: 80px !important;
+            }
+        }
+    }
+    .into-cedula{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 15px 0px !important;
+        padding: 15px;
+        .item-search{
+            width: 70%;
+            ion-input{
+                width: 65%;
+                display: inline-block;
+            }
+        }
+        .link-search{
+            width: 28%;
+            a{
+                color: #00e6ff;
+                text-decoration: none;
+                font-size: 1.2em;
+            }
+        }
+        p{
+            color: #c9c9c9;
+            margin: 0px;
+            font-size: 1.2em;
+        }
+    }
+    .data-complementation{
+        background-color: #4f4f4f !important;
+        color: #ededed;
+        padding: 10px !important;
+        margin: 15px;
+        margin-bottom: 8px !important;
+        ion-item{
+            padding-left: 11px !important;
+        }
+    }
+    .border-input{
+        border: 1px solid #c3c3c3;
+    }
+}
