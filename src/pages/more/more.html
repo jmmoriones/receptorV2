@@ -23,6 +23,7 @@
             </ion-item>
         </ion-list>
     </ion-item>
+    <form (ngSubmit)="submit(f.value)" #f="ngForm">
     <ion-list class="data-complementation">
         <h4 text-uppercase class="padd-left">Datos para completar</h4>
         <ion-item>
@@ -32,19 +33,20 @@
         <ion-grid>
             <ion-row>
                 <ion-col>
-                    <ion-input type="text" placeholder="Numero de empaques" class="border-input"></ion-input>
+                    <ion-input type="text" name="estopa" placeholder="Numero de empaques" class="border-input" [(ngModel)]='tran.estopa' required></ion-input>
                     <p text-center>Estopa</p>
                 </ion-col>
                 <ion-col>
-                    <ion-input type="text" placeholder="Numero de empaques" class="border-input"></ion-input>
+                    <ion-input type="text" name="rallas" placeholder="Numero de empaques" class="border-input" [(ngModel)]='tran.rallas' required></ion-input>
                     <p text-center>3 Rallas</p>
                 </ion-col>
                 <ion-col>
-                    <ion-input type="text" placeholder="Numero de empaques" class="border-input"></ion-input>
+                    <ion-input type="text" name="kilo" placeholder="Numero de empaques" class="border-input" [(ngModel)]='tran.kilo' required></ion-input>
                     <p text-center>Kilo</p>
                 </ion-col>
             </ion-row>
         </ion-grid>
     </ion-list>
-    <button ion-button round class="btn-scanner" (click)="goodProcess()">Generar formato</button>
+    <button type="submit" ion-button round class="btn-scanner" [disabled]="!f.valid">Generar formato</button>
+    </form>
 </ion-content>

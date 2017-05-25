@@ -66,8 +66,11 @@ export class Login {
   	this.loginPro.validar(user).subscribe(data=>{
       console.log(data);
       if(data.status === 200) {
+        this.loginPro.saveUser(data.results);
         this.navCtrl.push(HomePage, [this.sendHome]);  
+        
       }
+
       else{
         let alert = this.alertCtrl.create({
           title: 'Datos incorrecto',
