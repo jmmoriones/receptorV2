@@ -1,6 +1,6 @@
 page-login {
     ion-content{
-        background-image: url("../assets/images/fondo-01.png") !important;
+        background-image: url("../assets/images/fondo-01.png");
         background-size:cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -69,6 +69,26 @@ page-login {
     }
     .hide-password{
         display: none;
+        ion-item{
+            .item-inner{
+                .input-wrapper{
+                    ion-input{
+                        input{
+                            border-bottom: 1px solid #ccc;
+                            text-align: center;
+                            color: #00e5ff;
+                            outline: none;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-scanner{
+            font-size: 20px;
+            padding:1em 1.5em;
+            width: 70%;
+        }
     }
 
 

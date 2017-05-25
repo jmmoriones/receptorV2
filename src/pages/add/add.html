@@ -1,4 +1,4 @@
-<ion-content padding>   
+<ion-content padding class="ion-content">   
 	<div class="header-home">
         <button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
             <ion-icon name="more"></ion-icon>
@@ -6,12 +6,14 @@
 		<p>Utiliza el Scanner para obtener información de los productos y generar nuevos contenidos</p>
 		<button ion-button (click)="scanBarcode()" round class="btn-scanner">Scanear</button>
 	</div>
-	<ion-item class="item-search">
-		<ion-input type="search" class="input-search"></ion-input>
-	</ion-item>
-    <ion-icon name="search" class="icon-search"></ion-icon>
-    <p class="transac-title">Transacciones recientes</p>
-	<ion-content class="none-bg">
+    <div class="sec-search">
+        <ion-item class="item-search">
+		    <ion-input type="search" class="input-search"></ion-input>
+	    </ion-item>
+        <ion-icon name="search" class="icon-search"></ion-icon>
+        <p class="transac-title">Transacciones recientes</p>
+    </div>
+	<ion-content class="none-bg" scroll="false">
 		<ion-list>
             <ion-item>
                 <ion-avatar item-left>
