@@ -6,14 +6,26 @@ import { LoginProvider } from '../../providers/login';
 import { HomePopover } from '../homePopover/homePopover';
 import { MorePage } from '../more/more';
 import { RegisterPage } from '../register/register';
+import { TransactionGoodPage } from '../transactiongood/transaction';
+
 @Component({
   selector: 'page-add',
   templateUrl: 'add.html'
 })
 export class addPage {
-  public codes: any = []
+  public codes: any = [];
+  public productors: any;
   options: BarcodeScannerOptions;
   constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public loginPro: LoginProvider) {
+    this.loginPro.getTransaction().subscribe(data => {
+      if(data.status === 200){
+        console.log(data.results);
+        this.productors = data.results;
+        //console.log("Resultado productor: "+this.productor.kilo);
+      }else{
+        console.log("Error, no ha consumido nada")
+      }
+    })
   }
 
   presentPopover(event){
@@ -86,5 +98,8 @@ export class addPage {
       ]
     });
     confirm.present();
+  }
+  goUserTransaction(productors){
+    this.navCtrl.push(TransactionGoodPage, {productors});
   }
 }

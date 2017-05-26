@@ -15,77 +15,17 @@
     </div>
 	<div class="none-bg">
 		<ion-list>
-            <ion-item>
+            <ion-item *ngFor="let productor of productors">
                 <ion-avatar item-left>
                     <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
                 </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
-            </ion-item>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2>Ultima transaccion</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="calendar"></ion-icon> Fecha y hora</p>
+                <h2>{{productor['user'].name}}</h2>
+                <p><ion-icon name="ios-locate-outline"></ion-icon> Zona</p>
+                <p><ion-icon name="ios-resize-outline"></ion-icon> {{productor.kilograms}}</p>
+                <p><ion-icon name="calendar"></ion-icon> {{productor['user'].created_at | date}}</p>
+                <button class="productor-arrow" (click)="goUserTransaction(productor)">
+                    <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+                </button>
             </ion-item>
         </ion-list>
 	</div>

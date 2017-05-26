@@ -96,4 +96,8 @@ export class LoginProvider {
       return db.executeSql('DELETE FROM users',[]);
     })
   }
+  getTransaction(){
+    return this.http.get("http://35.184.34.17/api/transactions")
+      .map((res: Response)=>res.json());
+  }
 }
