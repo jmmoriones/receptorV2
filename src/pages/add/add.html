@@ -17,7 +17,7 @@
 		<ion-list>
             <ion-item *ngFor="let productor of productors">
                 <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                    <img [src]="productor['user'].img">
                 </ion-avatar>
                 <h2>{{productor['user'].name}}</h2>
                 <p><ion-icon name="ios-locate-outline"></ion-icon> Zona</p>

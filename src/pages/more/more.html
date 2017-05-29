@@ -14,7 +14,7 @@
         <ion-list>
             <ion-item>
                 <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                    <img [src]="transaction['user'].img">
                 </ion-avatar>
                 <h2 text-uppercase>{{transaction['user'].name}}</h2>
                 <p><ion-icon name="person"></ion-icon> Productor</p>
