@@ -24,7 +24,18 @@ export class LoginProvider {
   	return this.http.post("http://35.184.34.17/api/receiver/sign-in", user)
   	.map((response:Response)=>response.json());
   }
-
+  createTransaction(transaction){
+    console.log(transaction);
+    
+    return this.http.post("http://35.184.34.17/api/transaction", transaction)
+    .map((response:Response)=>response.json());
+  }
+  updateTransaction(transaction){
+    console.log(transaction);
+    
+    return this.http.put("http://35.184.34.17/api/transaction", transaction)
+    .map((response:Response)=>response.json());
+  }
   getUsers(){	
   	return this.http.get("http://35.184.34.17/api/receivers")
   	.map((response:Response)=>response.json());
@@ -50,7 +61,7 @@ export class LoginProvider {
       location: 'default' // the location field is required
     }).then((db: SQLiteObject) => {
       this.open=db;
-      db.executeSql('CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR(32), images VARCHAR(15), email VARCHAR(25))', {})
+      db.executeSql('CREATE TABLE IF NOT EXISTS users(id TEXT PRIMARY KEY,name VARCHAR(32), images VARCHAR(15), email VARCHAR(25))', {})
         .then(() => console.log('Executed SQL'))
         .catch(e => console.log(e));
     }, (err) => {
@@ -64,7 +75,7 @@ export class LoginProvider {
     }).then((db: SQLiteObject) => {
        console.log('Se Creo el usuario');
        console.log(user);
-      db.executeSql('INSERT OR REPLACE INTO users(name,email,images)  VALUES (?,?,?)', [user.name, user.img, user.email])
+      db.executeSql('INSERT OR REPLACE INTO users(id,name,email,images)  VALUES (?,?,?,?)', [user._id,user.name, user.img, user.email])
         .then(() => console.log('Executed SQL'))
         .catch(e => console.log(e));
     }, (err) => {
@@ -82,6 +93,24 @@ export class LoginProvider {
             return Promise.resolve(true);
           }else{
             return Promise.resolve(false);
+          }
+        });
+    }, (err) => {
+      console.error('Unable to open database: ', err);
+    });
+  }
+  currentUser(){
+    return this.db.create({
+      name: 'data.db',
+      location: 'default' // the location field is required
+    }).then((db: SQLiteObject) => {
+       return db.executeSql('SELECT * FROM users ORDER BY id ASC LIMIT 1',[])
+        .then(user=> {
+          if(user.rows.length>0) { 
+          console.log(user.rows.item(0));           
+            return Promise.resolve(user.rows.item(0));
+          }else{
+            return Promise.resolve({});
           }
         });
     }, (err) => {

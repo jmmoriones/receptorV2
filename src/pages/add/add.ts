@@ -17,7 +17,11 @@ export class addPage {
   public productors: any;
   options: BarcodeScannerOptions;
   constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public loginPro: LoginProvider) {
-    this.loginPro.getTransaction().subscribe(data => {
+    
+
+  }
+ionViewWillEnter(){
+     this.loginPro.getTransaction().subscribe(data => {
       if(data.status === 200){
         console.log(data.results);
         this.productors = data.results;
@@ -27,7 +31,6 @@ export class addPage {
       }
     })
   }
-
   presentPopover(event){
     let popover = this.popoverCtrl.create(HomePopover);
     popover.present({
@@ -58,8 +61,17 @@ export class addPage {
          
         
           if(data.status=="200"){
-              console.log(data.results);  
-              this.navCtrl.push(MorePage,{"name":data.results.name,"cedula":data.results.cedula,"email":data.results.email});
+              if(data.type=="new"){
+                console.log(data.results);  
+                let productor={user:data.results,kilograms:null,raya:null,kilo:null,estopa:null};
+                //this.navCtrl.push(MorePage,{"name":data.results.name,"cedula":data.results.cedula,"email":data.results.email});
+                console.log(productor);
+                this.navCtrl.push(MorePage,{productor});
+              }else{
+                let productor=data.results;
+                this.navCtrl.push(TransactionGoodPage,{productor});
+              }
+              
           }else{
             if(barCode.format=="PDF_417")this.showConfirm(barCode);
             else this.noFound();
@@ -99,7 +111,7 @@ export class addPage {
     });
     confirm.present();
   }
-  goUserTransaction(productors){
-    this.navCtrl.push(TransactionGoodPage, {productors});
+  goUserTransaction(productor){
+    this.navCtrl.push(TransactionGoodPage, {productor});
   }
 }
