@@ -12,6 +12,7 @@
   <allow-navigation href="http://192.168.0.12:8100"/>
   <allow-navigation href="http://192.168.0.26:8100"/>
   <allow-navigation href="http://192.168.0.3:8100"/>
+  <allow-navigation href="http://192.168.0.5:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -29,6 +30,7 @@
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
   <platform name="android">
+    <preference name="loadUrlTimeoutValue" value="700000"/>
     <allow-intent href="market:*"/>
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png"/>
     <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png"/>

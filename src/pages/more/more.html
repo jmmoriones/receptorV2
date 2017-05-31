@@ -1,16 +1,18 @@
 <ion-content class="content-more">
-    <ion-list class="into-cedula">
+    <ion-list class="into-cedula" ><!-- *ngIf="!bl===true" -->
         <div class="item-search">
             <p>Introduce el numero de cedula</p>
-            <ion-input type="search" class="input-search">
+            <ion-input type="number" class="input-search">
                 <ion-icon name="search" class="icon-search"></ion-icon>
             </ion-input>
         </div>
         <ion-item class="link-search" >
             <a href="#">Buscar</a>
         </ion-item>
+
     </ion-list>
-    <ion-item class="user-info">
+    <ion-item class="user-info"><!-- *ngIf="!bl===false" -->
+
         <ion-list>
             <ion-item>
                 <ion-avatar item-left>
@@ -23,11 +25,11 @@
             </ion-item>
         </ion-list>
     </ion-item>
-    <form (ngSubmit)="submit(f.value)" #f="ngForm">
+    <form (ngSubmit)="submit(f.value)" #f="ngForm" *ngIf="!bl===false">
     <ion-list class="data-complementation">
         <h4 text-uppercase class="padd-left">Datos para completar</h4>
         <ion-item>
-            <ion-input type="text" placeholder="Peso en kilogramos" class="border-input"></ion-input> <span>Kilogramos</span>
+            <ion-input type="text" name="kilograms" placeholder="Peso en kilogramos" class="border-input" [(ngModel)]='tran.kilograms'></ion-input> <span>Kilogramos</span>
         </ion-item>
         <h4 text-uppercase class="padd-left">Tipo de empaque y peso</h4>
         <ion-grid>
