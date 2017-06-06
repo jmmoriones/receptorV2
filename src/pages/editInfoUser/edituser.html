@@ -1,0 +1,50 @@
+<ion-content>
+    	<p class="m-top">Datos personales</p>
+    <form (ngSubmit)="submit(f.value)" #f="ngForm">
+	<fieldset class="content">
+            <legend>
+                <img src={{getArray[0].images}} alt="">
+            </legend>
+            <ion-list>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-2>
+                            <ion-icon name="people"></ion-icon>
+                        </ion-col>
+                        <ion-col col-10>
+                            <ion-item>                                
+                                <ion-input type="text" placeholder="Nombre" [(ngModel)]="user.name" name="name" required></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-2>
+                            <ion-icon name="ios-call-outline"></ion-icon>
+                        </ion-col>
+                        <ion-col col-10>
+                            <ion-item>
+                                <ion-input type="number" placeholder="Teléfono" [(ngModel)]="user.phone" name="phone" required></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-2>
+                            <ion-icon name="ios-key-outline"></ion-icon>
+                        </ion-col>
+                        <ion-col col-10>
+                            <ion-item>
+                                <ion-input type="number" placeholder="Contraseña" [(ngModel)]="user.password" name="password" maxlength="4" required></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <input type="hidden" [(ngModel)]="user._id" name="_id">
+                    </ion-row>
+                </ion-grid>
+            </ion-list>
+	</fieldset>
+	<div class="zone-btn">
+		<button ion-button  type="submit" color="secondary" [disabled]="!f.valid" class="btn-scanner" round>Enviar</button>
+	</div>
+    </form>
+</ion-content>

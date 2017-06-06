@@ -38,7 +38,8 @@ page-login {
         }
     }
     ion-header{
-        height: 35vh;
+        height: 30vh;
+        top: 10%;
         width: 100vw;
         text-align: center;
         position: relative;
@@ -46,7 +47,6 @@ page-login {
         .logo{
             max-width: 150px;
             margin: 0 auto;
-            padding-top: 6vh;
         }
     }
     .avatar-user{
@@ -68,7 +68,6 @@ page-login {
         height: 45%;
     }
     .hide-password{
-        display: none;
         ion-item{
             .item-inner{
                 .input-wrapper{
@@ -100,9 +99,10 @@ page-login {
 		min-height:150px;
 		border: 0px;
         position: relative;
-        top: -7%;
+        top: 0%;
         z-index: 10;
-        height: 60vh;
+        height: 70vh;
+        border-radius: 0px;
 		p{
 			text-align: center;
 			font-size: 1.3em;

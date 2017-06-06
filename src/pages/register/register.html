@@ -2,17 +2,29 @@
 <form (ngSubmit)="submit(f.value)" #f="ngForm" >
 	
   	<ion-list>
-	 	<ion-item>
-			<ion-label >Email</ion-label>
-			<ion-input type="email" name='email' [ngModel]='user.email' required></ion-input>
+		<ion-item>
+			<ion-label >Nombres</ion-label>
+			<ion-input type="text" name='name' [ngModel]='user.name' required></ion-input>
     	</ion-item>
 		<ion-item>
-			<ion-label >Nombre</ion-label>
-			<ion-input type="text" name='name' [ngModel]='user.name' required></ion-input>
+			<ion-label >Apellidos</ion-label>
+			<ion-input type="text" name='last' [ngModel]='user.last' required></ion-input>
     	</ion-item>
     	<ion-item>
 			<ion-label >Cedula</ion-label>
-			<ion-input type="text" name='cedula' [ngModel]='user.cedula' required></ion-input>
+			<ion-input type="number" name='cedula' [ngModel]='user.cedula' required></ion-input>
+    	</ion-item>
+		<ion-item>
+			<ion-label >Celular</ion-label>
+			<ion-input type="number" name='phone' [ngModel]='user.phone' required></ion-input>
+    	</ion-item>
+		<ion-item>
+			<ion-label >Nombre de finca</ion-label>
+			<ion-input type="text" name='finca' [ngModel]='user.finca' required></ion-input>
+    	</ion-item>
+		<ion-item>
+			<ion-label >Nombre de Vereda</ion-label>
+			<ion-input type="text" name='finca' [ngModel]='user.finca' required></ion-input>
     	</ion-item>
 		<ion-item>
     		<button ion-button  type="submit" color="secondary" [disabled]="!f.valid">Enviar</button>

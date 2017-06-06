@@ -28,14 +28,37 @@ page-add {
 				}
 			}
 		}
+		.item-search{
+		    background-color: transparent !important;
+			padding-left: 0px;
+			margin-top: 3.5em;
+			width: 100%;
+			display: inline-block;
+			.input-search{
+				background: transparent;
+				color: white;
+			}
+			ion-searchbar{
+				.searchbar-input-container{
+					input.searchbar-input{
+						background: transparent;
+						box-shadow: 0px 0px 0px;
+						border-bottom: 1px solid #CCC;
+					}
+				}
+			}
+		}
 		.sec-search{padding: 0px 16px}
 		.header-home{
 			height: 30vh;
-			display: flex;
+			padding: 0px 1em;
+			/*display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
+			justify-content: center;*/
+			display: block;
 			position: relative;
+			.logo_home{width: 10%;margin-top: 5px;}
 			p{
 				font-size: 1.12em !important;
 				text-align: center;
@@ -47,9 +70,10 @@ page-add {
 				position: absolute;
 				top: 0px;
 				right: 0px;
+				font-size: 20px;
 			}
 		}
-		.transac-title{ color: white;font-size: 1.1em;margin: 10px 0px;}
+		.transac-title{ color: white;font-size: 1.1em;margin: 10px 0px;text-align:center;}
 	 }
 	 .none-bg{
 		 background-image: none !important;

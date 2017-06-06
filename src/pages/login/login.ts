@@ -24,8 +24,9 @@ export class Login {
   user : any = {email: '',pass:''};
   public bl: boolean = false;
   public users : any = [];
+  public hidePass: boolean = false;
   public repositories:any;
-  public sendHome: any = [];
+  public sendHome: any;
   public repOne: any = [];
   constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, public loginPro: LoginProvider, public actionSheetCtrl: ActionSheetController) {
     this.repositories = [];
@@ -38,18 +39,19 @@ export class Login {
   }
   setMainRepository(repository){
     this.repOne = repository;
-    this.contentPassword.nativeElement.style.display = 'block';
-    //this.contentUsers.nativeElement.style.display = 'none';
     this.bl = true;
+    this.hidePass = true;
     this.user.email = this.repOne.email;
+    console.log(this.repOne);
+    //this.nativeStorage.set("llave", repository);
+    
   }
   
   ionViewDidLoad() {
     this.loginPro.getUsers().subscribe(data=>{
       if(data.status === 200) {
         this.users = data.results;
-        //console.log(this.users);
-        
+        console.log(data.results)
       }
       else{
         let alert = this.alertCtrl.create({
@@ -64,17 +66,16 @@ export class Login {
   }
   submit(user:any){  
   	this.loginPro.validar(user).subscribe(data=>{
-      console.log(data);
       if(data.status === 200) {
         this.loginPro.saveUser(data.results);
-        this.navCtrl.push(HomePage, [this.sendHome]);  
+        this.navCtrl.push(HomePage);  
         
       }
 
       else{
         let alert = this.alertCtrl.create({
-          title: 'Datos incorrecto',
-          subTitle: 'Por favor ingresa de nuevo tus datos!',
+          title: 'Contraseña incorrecta',
+          subTitle: 'Porfavor verique su contraseña',
           buttons: ['OK']
         });
         alert.present();
@@ -82,5 +83,9 @@ export class Login {
       
     });
 
+  }
+  backUsers(){
+    this.bl = false;
+    this.hidePass = false;
   }
 }

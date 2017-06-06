@@ -28,7 +28,9 @@ export class RegisterPage {
     this.loginPro.createUser(user).subscribe(data=>{
       console.log(data);
       if(data.status === 201) {
-        this.navCtrl.push(MorePage, data.results);  
+        let productor={user:data.results,kilograms:null,raya:null,kilo:null,estopa:null};
+                //this.navCtrl.push(MorePage,{"name":data.results.name,"cedula":data.results.cedula,"email":data.results.email});
+        this.navCtrl.push(MorePage, {productor});  
       }
       else{
         let alert = this.alertCtrl.create({

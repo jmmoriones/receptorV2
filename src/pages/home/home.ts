@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, PopoverController } from 'ionic-angular';
+import { NavController, AlertController, PopoverController, NavParams } from 'ionic-angular';
 import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 
 import { MorePage } from '../more/more';
@@ -12,12 +12,12 @@ import { UserPage } from '../infoUser/infoUser';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public codes: any = []
+  public codes: any = [];
   options: BarcodeScannerOptions;
   public morePage: any = MorePage;
   public aPage: any = addPage;
   public uPage: any = UserPage;
-  constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController) {
+  constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public navParams: NavParams) {
   }
 
   presentPopover(event){

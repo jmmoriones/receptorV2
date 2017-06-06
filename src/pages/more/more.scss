@@ -23,6 +23,7 @@ page-more {
                 ion-list{
                     background-color: #4f4f4f !important;
                     margin-bottom: 0px !important;
+                    padding: 1em 0px;
                 }
             }
         }
@@ -67,11 +68,13 @@ page-more {
         padding: 10px !important;
         margin: 3px;
         margin-bottom: 8px !important;
+        p.hour-date{padding-left: 14px;}
         h4{
             font-size: 1.5rem;
+            padding-left: 14px;
         }
         ion-item{
-            padding-left: 11px !important;
+            padding-left: 14px !important;
         }
     }
     .border-input{

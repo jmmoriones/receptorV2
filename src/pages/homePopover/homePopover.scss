@@ -1,9 +1,10 @@
 page-popover {
     background-color: transparent !important;
     .close-sesion{
-        background-color: transparent;
+        background-color: rgba(255, 255, 255, 0.17);
         width: 100%;
         font-size: 1.2em;
-        padding: 5px;
+        padding: 10px 5px;
+        color: white;
     }
 }

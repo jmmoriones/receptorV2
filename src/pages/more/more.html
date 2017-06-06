@@ -1,54 +1,53 @@
 <ion-content class="content-more">
-    <ion-list class="into-cedula" ><!-- *ngIf="!bl===true" -->
-        <div class="item-search">
-            <p>Introduce el numero de cedula</p>
-            <ion-input type="number" class="input-search">
-                <ion-icon name="search" class="icon-search"></ion-icon>
-            </ion-input>
-        </div>
-        <ion-item class="link-search" >
-            <a href="#">Buscar</a>
-        </ion-item>
 
-    </ion-list>
-    <ion-item class="user-info"><!-- *ngIf="!bl===false" -->
-
-        <ion-list>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-                </ion-avatar>
-                <h2 text-uppercase>{{productor['user'].name}}</h2>
-                <p><ion-icon name="person"></ion-icon> Productor</p>
-                <p><ion-icon name="eye"></ion-icon> Tipo de café</p>
-                <p><ion-icon name="calendar"></ion-icon> {{productor['user'].created_at | date}}</p>
-            </ion-item>
-        </ion-list>
-    </ion-item>
-    <form (ngSubmit)="submit(f.value)" #f="ngForm" *ngIf="!bl===false">
-    <ion-list class="data-complementation">
-        <h4 text-uppercase class="padd-left">Datos para completar</h4>
-        <ion-item>
-            <ion-input type="text" name="kilograms" placeholder="Peso en kilogramos" class="border-input" [(ngModel)]='tran.kilograms'></ion-input> <span>Kilogramos</span>
-        </ion-item>
-        <h4 text-uppercase class="padd-left">Tipo de empaque y peso</h4>
-        <ion-grid>
-            <ion-row>
-                <ion-col>
-                    <ion-input type="text" name="estopa" placeholder="Numero de empaques" class="border-input" [(ngModel)]='tran.estopa' required></ion-input>
-                    <p text-center>Estopa</p>
-                </ion-col>
-                <ion-col>
-                    <ion-input type="text" name="rallas" placeholder="Numero de empaques" class="border-input" [(ngModel)]='tran.rallas' required></ion-input>
-                    <p text-center>3 Rallas</p>
-                </ion-col>
-                <ion-col>
-                    <ion-input type="text" name="kilo" placeholder="Numero de empaques" class="border-input" [(ngModel)]='tran.kilo' required></ion-input>
-                    <p text-center>Kilo</p>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-list>
-    <button type="submit" ion-button round class="btn-scanner" [disabled]="!f.valid">Generar formato</button>
-    </form>
+	<ion-item class="user-info">
+		<ion-list>
+			<ion-item>
+				<ion-avatar item-left>
+					<img [src]="transaction['user'].img">
+				</ion-avatar>
+				<h2 text-uppercase>{{transaction['user'].name}}</h2>
+				<p><ion-icon name="person"></ion-icon> Productor</p>
+				<p><ion-icon name="eye"></ion-icon> Tipo de café</p>
+			</ion-item>
+		</ion-list>
+	</ion-item>
+	<form (ngSubmit)="submit(f.value)" #f="ngForm" >
+	<ion-list class="data-complementation">
+		<p class="hour-date"><ion-icon name="calendar"></ion-icon> {{transaction['user'].created_at | date}}</p>
+		<h4 text-uppercase class="padd-left">Datos para completar</h4>
+		<ion-item>
+			<ion-input type="number" name="kilograms" placeholder="Peso en kilogramos" class="border-input" [(ngModel)]='transaction.kilograms'></ion-input> <span>Kilogramos</span>
+		</ion-item>
+		<ion-item class="select-zona">
+			<ion-icon name="ios-locate-outline"></ion-icon>
+			<ion-label>Zona</ion-label>
+			<ion-select>
+				<ion-option value="z1">Zona 1</ion-option>
+				<ion-option value="z2">Zona 2</ion-option>
+				<ion-option value="z3">Zona 3</ion-option>
+				<ion-option value="z4">Zona 4</ion-option>
+				<ion-option value="z5">Zona 5</ion-option>
+			</ion-select>
+		</ion-item>
+		<h4 text-uppercase class="padd-left">Tipo de empaque y peso</h4>
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<ion-input type="number" name="estopa" placeholder="Numero de empaques" class="border-input" [(ngModel)]='transaction.estopa' required></ion-input>
+					<p text-center>Estopa</p>
+				</ion-col>
+				<ion-col>
+					<ion-input type="number" name="raya" placeholder="Numero de empaques" class="border-input" [(ngModel)]='transaction.raya' required></ion-input>
+					<p text-center>3 Rayas</p>
+				</ion-col>
+				<ion-col>
+					<ion-input type="number" name="kilo" placeholder="Numero de empaques" class="border-input" [(ngModel)]='transaction.kilo' required></ion-input>
+					<p text-center>Kilo</p>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-list>
+	<button type="submit" ion-button round class="btn-scanner" [disabled]="!f.valid">Generar formato</button>
+	</form>
 </ion-content>

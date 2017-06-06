@@ -1,23 +1,25 @@
 <ion-content>
 	<p class="m-top">Datos personales</p>
-	<fieldset class="content">
+	<fieldset class="content" *ngFor=" let user of infoUser">
 		<legend>
-			<img src="./assets/images/avatar.png" alt="">
+			<img src="{{user.images}}" alt="">
 		</legend>
-		<p>New Contact profile</p>
+		<p>{{user.name}}</p>
 		<p><ion-icon name="person"></ion-icon> Receptor</p>
 		<ion-list>
+			<p class="hide">{{user.id}}</p>
 			<ion-item>
 				<ion-icon name="ios-call-outline"></ion-icon>
-				<span>Número</span>
+				<span *ngIf="user.phone == null ">00000</span>
+				<span *ngIf="user.phone != null ">{{user.phone}}</span>
 			</ion-item>
 			<ion-item>
 				<ion-icon name="ios-at-outline"></ion-icon>
-				<span>Correo</span>
+				<span>{{user.email}}</span>
 			</ion-item>
 			<ion-item>
 				<ion-icon name="ios-add-outline"></ion-icon>
-				<span>Transacciones Realizadas</span>
+				<span>{{valTransaction}} Transacciones</span>
 			</ion-item>
 			<ion-item>
 				<ion-icon name="ios-calendar-outline"></ion-icon>
@@ -26,7 +28,7 @@
 		</ion-list>
 	</fieldset>
 	<div class="zone-btn">
-		<button ion-button round class="btn-scanner btn1">Editar</button>
+		<button ion-button round class="btn-scanner btn1" (click)="editInfo(infoUser)">Editar</button>
 		<button ion-button round class="btn-scanner btn2">Guardar</button>
 	</div>
 </ion-content>

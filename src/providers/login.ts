@@ -3,14 +3,6 @@ import { Http, Response } from '@angular/http';
 //import { SQLite } from 'ionic-native';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import 'rxjs/add/operator/map';
-
-/*
-	Generated class for the Login provider.
-
-	See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-	for more info on providers and Angular 2 DI.
-*/
-//http://35.184.34.17/api/transactions
 @Injectable()
 export class LoginProvider {
 	db:SQLite=null;
@@ -24,13 +16,21 @@ export class LoginProvider {
 		return this.http.post("http://35.184.34.17/api/receiver/sign-in", user)
 		.map((response:Response)=>response.json());
 	}
-
+	createTransaction(transaction){
+		console.log(transaction);
+		
+		return this.http.post("http://35.184.34.17/api/transaction", transaction)
+		.map((response:Response)=>response.json());
+	}
+	updateTransaction(transaction){
+		console.log(transaction);
+		
+		return this.http.put("http://35.184.34.17/api/transaction", transaction)
+		.map((response:Response)=>response.json());
+	}
 	getUsers(){	
 		return this.http.get("http://35.184.34.17/api/receivers")
 		.map((response:Response)=>response.json());
-	}
-	reposGithub(){
-		return this.http.get("https://api.github.com/users/codigofacilito/repos");
 	}
 	validarCodeUser(code:any){
 		console.log(code);
@@ -50,7 +50,7 @@ export class LoginProvider {
 			location: 'default' // the location field is required
 		}).then((db: SQLiteObject) => {
 			this.open=db;
-			db.executeSql('CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR(32), images VARCHAR(15), email VARCHAR(25))', {})
+			db.executeSql('CREATE TABLE IF NOT EXISTS users(id TEXT PRIMARY KEY,name VARCHAR(32), images VARCHAR(15), email VARCHAR(25), phone VARCHAR(15))', {})
 				.then(() => console.log('Executed SQL'))
 				.catch(e => console.log(e));
 		}, (err) => {
@@ -64,8 +64,7 @@ export class LoginProvider {
 		}).then((db: SQLiteObject) => {
 			 console.log('Se Creo el usuario');
 			 console.log(user);
-			db.executeSql('INSERT OR REPLACE INTO users(name,email,images)  VALUES (?,?,?)', [user.name, user.img, user.email])
-				.then(() => console.log('Executed SQL'))
+			db.executeSql('INSERT OR REPLACE INTO users(id,name,email,images, phone)  VALUES (?,?,?,?,?)', [user._id,user.name, user.email, user.img, user.phone])
 				.catch(e => console.log(e));
 		}, (err) => {
 			console.error('Unable to open database: ', err);
@@ -88,6 +87,24 @@ export class LoginProvider {
 			console.error('Unable to open database: ', err);
 		});
 	}
+	currentUser(){
+		return this.db.create({
+			name: 'data.db',
+			location: 'default' // the location field is required
+		}).then((db: SQLiteObject) => {
+			 return db.executeSql('SELECT * FROM users ORDER BY id ASC LIMIT 1',[])
+				.then(user=> {
+					if(user.rows.length>0) { 
+					console.log(user.rows.item(0));           
+						return Promise.resolve(user.rows.item(0));
+					}else{
+						return Promise.resolve({});
+					}
+				});
+		}, (err) => {
+			console.error('Unable to open database: ', err);
+		});
+	}
 	closeSesion(){
 		return this.db.create({
 			name: 'data.db',
@@ -99,5 +116,10 @@ export class LoginProvider {
 	getTransaction(){
 		return this.http.get("http://35.184.34.17/api/transactions")
 			.map((res: Response)=>res.json());
+	}
+	editUser(data){
+		console.log(data)
+		return this.http.put("http://35.184.34.17/api/receiver",data)
+			.map((response:Response)=>response.json());
 	}
 }
