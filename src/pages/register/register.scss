@@ -1,3 +1,9 @@
 register-page {
-   
+    background: #FFF;
+   ion-content{
+       background-image: inherit !important;
+       .form{
+           margin-top:3em;
+       }
+   }
 }

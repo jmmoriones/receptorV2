@@ -68,8 +68,7 @@ export class Login {
   	this.loginPro.validar(user).subscribe(data=>{
       if(data.status === 200) {
         this.loginPro.saveUser(data.results);
-        this.navCtrl.push(HomePage);  
-        
+        this.navCtrl.setRoot(HomePage);
       }
 
       else{
@@ -87,5 +86,6 @@ export class Login {
   backUsers(){
     this.bl = false;
     this.hidePass = false;
+    this.repOne = {email:"Seleccione un usuario", img:"./assets/images/avatar-user.png"};
   }
 }

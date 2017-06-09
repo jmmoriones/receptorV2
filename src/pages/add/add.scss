@@ -89,17 +89,20 @@ page-add {
 				 }
 				 .item-inner{
 					 ion-label{
-						 position: relative;
 						 h2{font-size:1.1em!important;color:#d1d1d1;}
 						 p{font-size: .9em!important;color:#d1d1d1;}
 						 .productor-arrow{
 							position: absolute;
 							top: 0px;
 							right: 0px;
+							left: 0px;
 							bottom: 0px;
 							background-color: transparent;
 							font-size: 20px;
 							color: #00e6ff;
+							width: 100%;
+							text-align: right;
+							padding-right: 20px;
 						 }
 					 }
 				 }

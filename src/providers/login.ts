@@ -122,4 +122,17 @@ export class LoginProvider {
 		return this.http.put("http://35.184.34.17/api/receiver",data)
 			.map((response:Response)=>response.json());
 	}
+	editUserTable(user:any){
+		this.db.create({
+			name: 'data.db',
+			location: 'default' // the location field is required
+		}).then((db: SQLiteObject) => {
+			 console.log('Se Creo el usuario');
+			 console.log(user);
+			db.executeSql('UPDATE users SET name = ?,email = ?,images = ?, phone = ? WHERE id = ?', [user.name, user.email, user.img, user.phone, user._id] )
+				.catch(e => console.log(e));
+		}, (err) => {
+			console.error('Unable to open database: ', err);
+		});
+	}
 }

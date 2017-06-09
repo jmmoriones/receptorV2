@@ -1,15 +1,19 @@
 <ion-content>
-<form (ngSubmit)="submit(f.value)" #f="ngForm" >
-	
+<h1 class="text-center">Resgistro de usuario</h1>
+<form (ngSubmit)="submit(f.value)" #f="ngForm" class="form">
   	<ion-list>
 		<ion-item>
 			<ion-label >Nombres</ion-label>
 			<ion-input type="text" name='name' [ngModel]='user.name' required></ion-input>
     	</ion-item>
 		<ion-item>
+			<ion-label >Email</ion-label>
+			<ion-input type="email" name='email' [ngModel]='user.email' required></ion-input>
+    	</ion-item>
+		<!--<ion-item>
 			<ion-label >Apellidos</ion-label>
 			<ion-input type="text" name='last' [ngModel]='user.last' required></ion-input>
-    	</ion-item>
+    	</ion-item>-->
     	<ion-item>
 			<ion-label >Cedula</ion-label>
 			<ion-input type="number" name='cedula' [ngModel]='user.cedula' required></ion-input>

@@ -1,4 +1,7 @@
 <ion-content>
+	<a href="#" (click)="backUsers()" *ngIf="!bl == false" class="back">
+		<ion-icon name="ios-arrow-back-outline"></ion-icon>
+	</a>
 	<ion-header>
 		<img src="../assets/images/logo-01.png" class="logo">
 	</ion-header>
@@ -17,7 +20,7 @@
 			<ion-input type="number" name='password' [ngModel]='user.password' required style="-webkit-text-security:disc"></ion-input>
     	</ion-item>
 		<ion-item>
-    		<button ion-button  type="submit" color="secondary" [disabled]="!f.valid" class="btn-scanner" round>Enviar</button>
+    		<button ion-button  type="submit" color="secondary" [disabled]="!f.valid" class="btn-scanner" round>Aceptar</button>
   		</ion-item>
 	  </div>
     </ion-list>
@@ -27,11 +30,13 @@
 					<ion-avatar item-left>
 						<img [src]="usr['img']" alt="">
 					</ion-avatar>
-					<h2>{{usr.email}}</h2>
+					<div>
+						<h2>{{usr.email}}</h2>
+						<span>Receptor</span>
+					</div>
 				</ion-item>
 			</ion-list>
 		</ion-content>
-		<a href="#" (click)="backUsers()" *ngIf="!bl == false">Back</a>
 	</form>
 	</fieldset>
 </ion-content>

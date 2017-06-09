@@ -21,6 +21,7 @@ export class EditUser {
   submit(data){
     this.prvLogin.editUser(data).subscribe(data => {
       if(data.status == 200){
+        this.prvLogin.editUserTable(data.results);
         this.navCtrl.push(UserPage);
       }else{
         let alert = this.alertCtrl.create({

@@ -1,5 +1,11 @@
 page-login {
     ion-content{
+        .back{
+            position: absolute;
+            top: 20px;
+            left:17px;
+            font-size: 20px;
+        }
         background-image: url("../assets/images/fondo-01.png");
         background-size:cover;
         background-repeat: no-repeat;
@@ -29,6 +35,11 @@ page-login {
             color: #FFF;
             text-align: center;
             top: 0%;
+            h3{
+                margin: 0px;
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
             ion-select{
                 margin: 0 auto;
                 color: white;
@@ -65,19 +76,21 @@ page-login {
     .list-users{
         background-image: inherit !important;
         background-color: transparent !important;
-        height: 45%;
+        height: 80%;
     }
     .hide-password{
         ion-item{
+            border-bottom:0px !important;
             .item-inner{
                 .input-wrapper{
                     ion-input{
                         input{
-                            border-bottom: 1px solid #ccc;
+                            border-bottom: 1px solid rgba(138, 138, 138, 0.51);
                             text-align: center;
                             color: #00e5ff;
                             outline: none;
                             font-size: 20px;
+                            letter-spacing: 10px;
                         }
                     }
                 }
@@ -118,10 +131,16 @@ page-login {
 			}
 		}
 		ion-item{
-			background-color: transparent !important;
-			color:#ebebeb;
+		    background-color: transparent !important;
+            color: #ebebeb;
+            border-bottom: 1px solid rgba(138, 138, 138, 0.51);
+            width: 90%;
+            margin: 0 auto;
+            padding-left: 0px;
 			.item-inner{
 				border-bottom: 0px !important;
+                border-bottom-color: inherit !important;
+                box-shadow:inherit !important;
 				.input-wrapper{
 					ion-label{
 						display: flex;
