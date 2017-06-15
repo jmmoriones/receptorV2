@@ -18,9 +18,6 @@ import {HomePage} from '../home/home';
   templateUrl: 'login.html',
 })
 export class Login {
-  @ViewChild('contentPassword')contentPassword;
-  @ViewChild('contentUsers')contentUsers;
-
   user : any = {email: '',pass:''};
   public bl: boolean = false;
   public users : any = [];
@@ -28,10 +25,14 @@ export class Login {
   public repositories:any;
   public sendHome: any;
   public repOne: any = [];
+  public validationUser: any = {email: null, password: null};
   constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, public loginPro: LoginProvider, public actionSheetCtrl: ActionSheetController) {
     this.repositories = [];
 
     this.repOne = {email:"Seleccione un usuario", img:"./assets/images/avatar-user.png"};
+    if( this.user.pass.length === 4 ){
+      console.log("llego");
+    }
   }
 
   beforeSend(user:any){
@@ -64,6 +65,14 @@ export class Login {
       
     });
   }
+  saverange(newValue) {
+  this.user.password = newValue;
+  this.validationUser = {email: this.user.email, password: this.user.password}
+  console.log(this.user.password);
+  if(this.user.password.length === 4){
+    this.submit(this.validationUser);
+  }
+} 
   submit(user:any){  
   	this.loginPro.validar(user).subscribe(data=>{
       if(data.status === 200) {

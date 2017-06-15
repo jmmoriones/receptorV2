@@ -25,8 +25,11 @@ ionViewWillEnter(){
 		this.loginPro.getTransaction().subscribe(data => {
 			if(data.status === 200){
 				this.productors = data.results;
+				console.log(this.productors);
+
 				for(let c of data.results){
-					c.search=c.user.name+c.kilograms;
+					//c.search=c.user.name+c.kilograms;
+					c.search=c.user.cedula+c.dni;
 					this.currentProductors.push(c);
 				}
 			}else{

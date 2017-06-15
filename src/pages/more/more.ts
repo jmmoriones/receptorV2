@@ -23,6 +23,7 @@ export class MorePage {
   constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public loginPro: LoginProvider) { 
   
       this.transaction = navParams.get('productor');
+      console.log(this.transaction);
       if(this.transaction.kilograms==null){
         console.log(this.transaction);
         this.isNew=true;

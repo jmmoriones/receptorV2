@@ -22,9 +22,9 @@
 					<img [src]="productor['user'].img">
 				</ion-avatar>
 				<h2>{{productor['user'].name}}</h2>
-				<p><ion-icon name="ios-locate-outline"></ion-icon> Zona</p>
-				<p><ion-icon name="ios-resize-outline"></ion-icon> {{productor.kilograms}}</p>
-				<p><ion-icon name="calendar"></ion-icon> {{productor['user'].created_at | date}}</p>
+				<p>ID: {{productor.dni}}</p>
+				<p>C.C: {{productor.user.cedula}}</p>
+				<p><ion-icon name="calendar"></ion-icon> {{productor.created_at | date}}</p>
 				<button class="productor-arrow" (click)="goUserTransaction(productor)">
 					<ion-icon name="ios-arrow-forward-outline"></ion-icon>
 				</button>

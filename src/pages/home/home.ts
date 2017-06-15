@@ -6,6 +6,7 @@ import { MorePage } from '../more/more';
 import { addPage } from '../add/add';
 import { HomePopover } from '../homePopover/homePopover';
 import { UserPage } from '../infoUser/infoUser';
+import { SearchPage } from '../searchUser/searchuser';
 
 @Component({
   selector: 'page-home',
@@ -17,6 +18,7 @@ export class HomePage {
   public morePage: any = MorePage;
   public aPage: any = addPage;
   public uPage: any = UserPage;
+  public search: any = SearchPage;
   constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public navParams: NavParams) {
   }
 

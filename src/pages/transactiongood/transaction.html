@@ -5,35 +5,39 @@
 			<img [src]="productor['user'].img" alt="">
 		</legend>
 		<p>{{productor['user'].name}}</p>
-		<p><ion-icon name="person"></ion-icon> Productor</p>
+		<p><ion-icon name="person"></ion-icon> {{productor['user'].cedula}}</p>
 		<ion-list>
 			<ion-item>
-				<ion-icon name="home"></ion-icon>
-				<span>Tipo de cafe</span>
+				<span>ID: </span>
+				<span>{{productor.dni}}</span>
 			</ion-item>
 			<ion-item>
-				<ion-icon name="home"></ion-icon>
-				<span>{{productor['user'].created_at | date}}</span>
+				<ion-icon name="ios-calendar-outline"></ion-icon>
+				<span>{{productor.created_at | date}}</span>
 			</ion-item>
 			<ion-item>
 				<ion-icon name="home"></ion-icon>
 				<span>{{productor.kilograms}} Kg</span>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="pin"></ion-icon>
+				<span>{{productor.zona}}</span>
 			</ion-item>
 		</ion-list>
 		<p>Tipo de empaque</p>
 		<ion-grid>
 			<ion-row>
 				<ion-col text-center>
-					<h5 color-white>Cantidad</h5>
 					<span color-white>{{productor.estopa}}</span>
+					<h5 color-white>Estopa</h5>
 				</ion-col>
 				<ion-col text-center>
-					<h5 color-white>Cantidad</h5>
 					<span color-white>{{productor.raya}}</span>
+					<h5 color-white>3Rayas</h5>
 				</ion-col>
 				<ion-col text-center>
-					<h5 color-white>Cantidad</h5>
 					<span color-white>{{productor.kilo}}</span>
+					<h5 color-white>Kilo</h5>
 				</ion-col>
 			</ion-row>
 		</ion-grid>

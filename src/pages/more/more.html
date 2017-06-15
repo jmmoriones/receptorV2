@@ -7,27 +7,27 @@
 					<img [src]="transaction['user'].img">
 				</ion-avatar>
 				<h2 text-uppercase>{{transaction['user'].name}}</h2>
-				<p><ion-icon name="person"></ion-icon> Productor</p>
-				<p><ion-icon name="eye"></ion-icon> Tipo de café</p>
+				<p>C.C. {{transaction['user'].cedula}}</p>
+				<p><ion-icon name="eye"></ion-icon> {{transaction['user'].cafe}}</p>
 			</ion-item>
 		</ion-list>
 	</ion-item>
 	<form (ngSubmit)="submit(f.value)" #f="ngForm" >
 	<ion-list class="data-complementation">
+		<h4 text-uppercase class="padd-left">Datos para complementar</h4>
 		<p class="hour-date"><ion-icon name="calendar"></ion-icon> {{transaction['user'].created_at | date}}</p>
-		<h4 text-uppercase class="padd-left">Datos para completar</h4>
 		<ion-item>
 			<ion-input type="number" name="kilograms" placeholder="Peso en kilogramos" class="border-input" [(ngModel)]='transaction.kilograms'></ion-input> <span>Kilogramos</span>
 		</ion-item>
 		<ion-item class="select-zona">
 			<ion-icon name="ios-locate-outline"></ion-icon>
 			<ion-label>Zona</ion-label>
-			<ion-select>
-				<ion-option value="z1">Zona 1</ion-option>
-				<ion-option value="z2">Zona 2</ion-option>
-				<ion-option value="z3">Zona 3</ion-option>
-				<ion-option value="z4">Zona 4</ion-option>
-				<ion-option value="z5">Zona 5</ion-option>
+			<ion-select name="zona" [(ngModel)]="transaction.zona">
+				<ion-option value="z1" value="zona 1">Zona 1</ion-option>
+				<ion-option value="z2" value="zona 2">Zona 2</ion-option>
+				<ion-option value="z3" value="zona 3">Zona 3</ion-option>
+				<ion-option value="z4" value="zona 4">Zona 4</ion-option>
+				<ion-option value="z5" value="zona 5">Zona 5</ion-option>
 			</ion-select>
 		</ion-item>
 		<h4 text-uppercase class="padd-left">Tipo de empaque y peso</h4>

@@ -1,0 +1,26 @@
+<ion-content>
+	<div class="sec-search">
+		<div class="item-search">
+			<!--<ion-input type="number" class="input-search" ngModel="busqueda"></ion-input>-->
+			<ion-searchbar (ionInput)="getItems($event)" type="number" placeholder="Buscar por cedula"></ion-searchbar>
+		</div>
+	</div>
+	<div class="none-bg">
+		<div *ngIf="users.length < 1">
+			<p>El productor no se encuentra registrado o el número de cédula es erróneo</p>
+		</div>
+		<ion-list>
+			<ion-item *ngFor="let user of users">
+				<ion-avatar item-left>
+					<img [src]="user.img">
+				</ion-avatar>
+				<h2>{{user.name}}</h2>
+				<p>C.C: {{user.cedula}}</p>
+				<p><ion-icon name="calendar"></ion-icon> {{user.created_at | date}}</p>
+				<button class="productor-arrow" (click)="goUserTransaction(user)">
+					<ion-icon name="ios-arrow-forward-outline"></ion-icon>
+				</button>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>

@@ -17,6 +17,7 @@ import { TransactionGoodPage } from '../pages/transactiongood/transaction'
 import { ModalPage } from '../pages/modalSuccess/modal';
 import { UserPage } from '../pages/infoUser/infoUser';
 import { EditUser } from '../pages/editInfoUser/edituser';
+import { SearchPage } from '../pages/searchUser/searchuser';
 
 //Provider
 import { LoginProvider } from '../providers/login';
@@ -32,7 +33,8 @@ import { LoginProvider } from '../providers/login';
     ModalPage,
     RegisterPage,
     UserPage,
-    EditUser
+    EditUser,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { LoginProvider } from '../providers/login';
     ModalPage,
     RegisterPage,
     UserPage,
-    EditUser
+    EditUser,
+    SearchPage
   ],
   providers: [
     StatusBar,

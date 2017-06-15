@@ -135,4 +135,8 @@ export class LoginProvider {
 			console.error('Unable to open database: ', err);
 		});
 	}
+	getUsersTransaction(){
+		return this.http.get('http://35.184.34.17/api/users')
+			.map((response:Response)=>response.json());
+	}
 }

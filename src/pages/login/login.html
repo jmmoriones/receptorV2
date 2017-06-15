@@ -3,7 +3,7 @@
 		<ion-icon name="ios-arrow-back-outline"></ion-icon>
 	</a>
 	<ion-header>
-		<img src="../assets/images/logo-01.png" class="logo">
+		<img src="./assets/images/logo-01.png" class="logo">
 	</ion-header>
 <fieldset class="content-home">
 		<legend>
@@ -17,11 +17,8 @@
 	  <div class="hide-password"  *ngIf="!hidePass == false">
 		<ion-item>
 			<input type="hidden" name="email" [(ngModel)]="user.email" />
-			<ion-input type="number" name='password' [ngModel]='user.password' required style="-webkit-text-security:disc"></ion-input>
+			<ion-input type="number" name='password' [ngModel]='user.password' required style="-webkit-text-security:disc" (ngModelChange)="saverange($event)"></ion-input>
     	</ion-item>
-		<ion-item>
-    		<button ion-button  type="submit" color="secondary" [disabled]="!f.valid" class="btn-scanner" round>Aceptar</button>
-  		</ion-item>
 	  </div>
     </ion-list>
 		<ion-content class="list-users"  #contentUsers *ngIf="!bl==true">
