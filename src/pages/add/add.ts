@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, PopoverController} from 'ionic-angular';
+import { NavController, AlertController, PopoverController, ModalController} from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
+import { Camera, CameraOptions } from 'ionic-native';
 
 import { LoginProvider } from '../../providers/login';
 import { HomePopover } from '../homePopover/homePopover';
 import { MorePage } from '../more/more';
 import { RegisterPage } from '../register/register';
 import { TransactionGoodPage } from '../transactiongood/transaction';
+import { PageTutorialPage } from '../page-tutorial/page-tutorial';
 
 @Component({
 	selector: 'page-add',
@@ -16,13 +19,32 @@ export class addPage {
 	public codes: any = [];
 	public productors: any;
 	public currentProductors=[];
+	public showStyle: boolean = false;
+	public ocultar: string = "block";
 	options: BarcodeScannerOptions;
-	constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public loginPro: LoginProvider) {}
+	constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public loginPro: LoginProvider, private keyboard: Keyboard, public modalCtrl: ModalController) {
+		let pModal = this.modalCtrl.create(PageTutorialPage);
+    	pModal.present();
+		this.keyboard.onKeyboardShow().subscribe(dt =>{
+			if(dt){
+				this.ocultar = "none";
+				console.log("Abrio");
+			}
+		});
+		this.keyboard.onKeyboardHide().subscribe(dt =>{
+			if(dt){
+				this.ocultar = "block";
+				console.log("cerro");
+			}
+		});
+	}
 ionViewWillEnter(){
+	
 		 this.loadTransactions();
 	}
 	loadTransactions(){
 		this.loginPro.getTransaction().subscribe(data => {
+			this.productors = [];
 			if(data.status === 200){
 				this.productors = data.results;
 				console.log(this.productors);
@@ -130,9 +152,20 @@ ionViewWillEnter(){
 		if (val && val.trim() != '') {
 			this.productors = this.productors.filter((item) => {
 				return (item.search.toLowerCase().indexOf(val.toLowerCase()) > -1);
-				//return (item['user'].cedula);
-				//console.log(cedula);
 			})
 		}
+	}
+	openCamera(){
+		let cameraOption : CameraOptions = {
+			quality: 80,
+			destinationType: Camera.DestinationType.DATA_URL,
+			sourceType: Camera.PictureSourceType.CAMERA,
+			allowEdit: false,
+			encodingType: Camera.EncodingType.JPEG,
+			saveToPhotoAlbum: false
+		};
+		Camera.getPicture(cameraOption).then((imageData) => {
+			alert(imageData);
+		}).catch(err => console.log(err));
 	}
 }

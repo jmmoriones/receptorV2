@@ -1,11 +1,39 @@
 page-user{
 	ion-content{
+		.pop-btn{
+			color: #00e6ff;
+			background-color: transparent;
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			font-size: 20px;
+			box-shadow: inherit !important;
+			&:hover{
+				background-color: inherit;	
+			}
+		}
 		.m-top{
 			margin: 2em !important;
 		}
+		.fieldset{
+		    background: rgb(79, 79, 79);
+    		border: 0px;
+		}
+		ion-col.col {
+				font-size: 16px;
+			}
+			.f22{font-size: 22px;}
+			ion-list{
+				margin-top:20px;
+				ion-grid{
+					ion-row{
+						margin-bottom:20px;
+					}
+				}
+			}
 	}
 	.content{
-		background: #4f4f4f;
+		background: rgb(66, 66, 66);
 		border-radius: 5px;
 		padding: 5px;
 		min-height:150px;

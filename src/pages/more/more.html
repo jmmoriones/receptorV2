@@ -15,20 +15,9 @@
 	<form (ngSubmit)="submit(f.value)" #f="ngForm" >
 	<ion-list class="data-complementation">
 		<h4 text-uppercase class="padd-left">Datos para complementar</h4>
-		<p class="hour-date"><ion-icon name="calendar"></ion-icon> {{transaction['user'].created_at | date}}</p>
+		<p class="hour-date"><ion-icon name="calendar"></ion-icon> {{transaction['user'].created_at | date:'medium'}}</p>
 		<ion-item>
 			<ion-input type="number" name="kilograms" placeholder="Peso en kilogramos" class="border-input" [(ngModel)]='transaction.kilograms'></ion-input> <span>Kilogramos</span>
-		</ion-item>
-		<ion-item class="select-zona">
-			<ion-icon name="ios-locate-outline"></ion-icon>
-			<ion-label>Zona</ion-label>
-			<ion-select name="zona" [(ngModel)]="transaction.zona">
-				<ion-option value="z1" value="zona 1">Zona 1</ion-option>
-				<ion-option value="z2" value="zona 2">Zona 2</ion-option>
-				<ion-option value="z3" value="zona 3">Zona 3</ion-option>
-				<ion-option value="z4" value="zona 4">Zona 4</ion-option>
-				<ion-option value="z5" value="zona 5">Zona 5</ion-option>
-			</ion-select>
 		</ion-item>
 		<h4 text-uppercase class="padd-left">Tipo de empaque y peso</h4>
 		<ion-grid>
@@ -47,6 +36,16 @@
 				</ion-col>
 			</ion-row>
 		</ion-grid>
+		<ion-item class="select-zona">
+			<ion-icon name="ios-locate-outline"></ion-icon>
+			<ion-select name="zona" [(ngModel)]="transaction.zona" class="white" placeholder="Zona">
+				<ion-option value="z1" value="zona 1">Zona 1</ion-option>
+				<ion-option value="z2" value="zona 2">Zona 2</ion-option>
+				<ion-option value="z3" value="zona 3">Zona 3</ion-option>
+				<ion-option value="z4" value="zona 4">Zona 4</ion-option>
+				<ion-option value="z5" value="zona 5">Zona 5</ion-option>
+			</ion-select>
+		</ion-item>
 	</ion-list>
 	<button type="submit" ion-button round class="btn-scanner" [disabled]="!f.valid">Generar formato</button>
 	</form>

@@ -66,9 +66,10 @@ export class MorePage {
         console.log(data)
         if(data.status === 200){
           tran.user=this.transaction.user;
-          let productor=tran;
+          let productor=data.results;
           this.navCtrl.push(TransactionGoodPage, {productor});
-          //console.log("Resultado productor: "+this.productor.kilo);
+          console.log("Resultado productor: "+productor);
+          console.log(data.results);
         }else{
           let alert = this.alertCtrl.create({
               title: "Error",

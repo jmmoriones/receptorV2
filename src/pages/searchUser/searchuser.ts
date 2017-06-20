@@ -13,27 +13,26 @@ export class SearchPage {
   public users: any = [];
   public productors: any;
 	public lengthUser: boolean;
-	public currentProductors=[];
+	public currentUsers=[];
   constructor(public navCtrl: NavController, public navParams: NavParams, private prvLogin: LoginProvider) {}
   ionViewWillEnter(){
 		 this.loadTransaction();
-		 console.log("Desde en ionView");
-		 console.log(this.users);
 	}
   loadTransaction(){
     this.prvLogin.getUsersTransaction().subscribe(data => {
+			this.users = [];
       if(data.status == 200){
         this.users = data.results;
         console.log(this.users);
         for(let c of data.results){
 					c.search=c.cedula;
-					this.currentProductors.push(c);
+					this.currentUsers.push(c);
 				}
       }
     });
   }
   refresh(){
-		this.users=this.currentProductors;
+		this.users=this.currentUsers;
 	}
   getItems(ev: any) {
 		// Reset items back to all of the items
@@ -45,8 +44,6 @@ export class SearchPage {
 			this.users = this.users.filter((item) => {
 				console.log(this.users);
 				return (item.search.toLowerCase().indexOf(val.toLowerCase()) > -1);
-				//return (item['user'].cedula);
-				//console.log(cedula);
 			})
 			if(this.users.length > 0){
 				this.lengthUser = false;

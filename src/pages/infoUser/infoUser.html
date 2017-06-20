@@ -1,6 +1,9 @@
 <ion-content>
+	<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
+		<ion-icon name="more"></ion-icon>
+	</button>
 	<p class="m-top">Datos personales</p>
-	<fieldset class="content" *ngFor=" let user of infoUser">
+	<fieldset class="fieldset" *ngFor=" let user of infoUser">
 		<legend>
 			<img src="{{user.images}}" alt="">
 		</legend>
@@ -8,23 +11,25 @@
 		<p><ion-icon name="person"></ion-icon> Receptor</p>
 		<ion-list>
 			<p class="hide">{{user.id}}</p>
-			<ion-item>
-				<ion-icon name="ios-call-outline"></ion-icon>
-				<span *ngIf="user.phone == null ">00000</span>
-				<span *ngIf="user.phone != null ">{{user.phone}}</span>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="ios-at-outline"></ion-icon>
-				<span>{{user.email}}</span>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="ios-add-outline"></ion-icon>
-				<span>{{valTransaction}} Transacciones</span>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="ios-calendar-outline"></ion-icon>
-				<span>Ultima transaccion</span>
-			</ion-item>
+			<ion-grid>
+				<ion-row>
+					<ion-col col-2 text-center><ion-icon name="ios-call-outline" class="f22"></ion-icon></ion-col>
+					<ion-col col-10><span *ngIf="user.phone == null ">00000</span>
+				<span *ngIf="user.phone != null ">{{user.phone}}</span></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-2 text-center><ion-icon name="ios-at-outline" class="f22"></ion-icon></ion-col>
+					<ion-col col-10><span>{{user.email}}</span></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-2 text-center><ion-icon name="ios-add-outline" class="f22"></ion-icon></ion-col>
+					<ion-col col-10><span>{{valTransaction}} Transacciones</span></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-2 text-center><ion-icon name="ios-calendar-outline" class="f22"></ion-icon></ion-col>
+					<ion-col col-10><span>Ultima transaccion</span></ion-col>
+				</ion-row>
+			</ion-grid>
 		</ion-list>
 	</fieldset>
 	<div class="zone-btn">

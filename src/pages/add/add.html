@@ -1,5 +1,5 @@
 <ion-content padding class="ion-content">   
-	<div class="header-home">
+	<div class="header-home" [style.display]="ocultar"><!-- [style.display]="getOcultar()" -->
 		<img src="./assets/images/logo_home.png" class="logo_home">
 		<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
 			<ion-icon name="more"></ion-icon>
@@ -9,8 +9,7 @@
 	</div>
 	<div class="sec-search">
 		<div class="item-search">
-			<!--<ion-input type="number" class="input-search" ngModel="busqueda"></ion-input>-->
-			<ion-searchbar (ionInput)="getItems($event)" type="number"></ion-searchbar>
+			<ion-searchbar (ionInput)="getItems($event)" type="number" placeholder="Buscar"></ion-searchbar>
 		</div>
 		<!--<ion-icon name="search" class="icon-search"></ion-icon>-->
 		<p class="transac-title text-center">Transacciones Recientes</p>
@@ -21,10 +20,25 @@
 				<ion-avatar item-left>
 					<img [src]="productor['user'].img">
 				</ion-avatar>
-				<h2>{{productor['user'].name}}</h2>
-				<p>ID: {{productor.dni}}</p>
-				<p>C.C: {{productor.user.cedula}}</p>
-				<p><ion-icon name="calendar"></ion-icon> {{productor.created_at | date}}</p>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							<h2>{{productor['user'].name}}</h2>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-2>ID:</ion-col>
+						<ion-col col-10>{{productor.dni}}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-2>C.C.</ion-col>
+						<ion-col col-10>{{productor.user.cedula}}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-2><ion-icon name="calendar"></ion-icon></ion-col>
+						<ion-col col-10>{{productor.created_at | date:'medium'}}</ion-col>
+					</ion-row>
+				</ion-grid>
 				<button class="productor-arrow" (click)="goUserTransaction(productor)">
 					<ion-icon name="ios-arrow-forward-outline"></ion-icon>
 				</button>

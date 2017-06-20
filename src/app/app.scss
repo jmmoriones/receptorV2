@@ -2,6 +2,11 @@ ion-content{
     @import url('https://fonts.googleapis.com/css?family=Abel');
     font-family: 'Abel', sans-serif !important;
 }
+ion-col.col {
+    padding: 0px;
+    color: #ddd;
+    font-size:14px;
+}
 .popover-content{
         top: 11px !important;
         right: 35px !important;

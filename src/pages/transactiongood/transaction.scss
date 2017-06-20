@@ -1,11 +1,53 @@
 page-transactiongood{
 	ion-content{
+		.pop-btn{
+			color: #00e6ff;
+			background-color: transparent;
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			font-size: 20px;
+			box-shadow: inherit !important;
+			&:hover{
+				background-color: inherit;	
+			}
+		}
 		.m-top{
 			margin: 2em !important;
 		}
+		.content-home{
+			background: rgb(79, 79, 79);
+    		border: 0px;
+			legend{
+				img{
+					border-radius: 50%;
+				}
+			}
+			ion-col.col {
+				font-size: 16px;
+			}
+			.f22{font-size: 22px;}
+			ion-list{
+				margin-top:20px;
+				ion-grid{
+					ion-row{
+						margin-bottom:20px;
+					}
+				}
+			}
+			.empaque-peso{
+				.l17{margin-left: 17px;}
+				ion-row{
+					margin-top:10px;
+					ion-col{
+						h5{margin-top:4px;}
+					}
+				}
+			}
+		}
 	}
 	.content{
-		background: #4f4f4f;
+		background: rgb(66, 66, 66);
 		border-radius: 5px;
 		padding: 5px;
 		min-height:150px;
@@ -48,6 +90,7 @@ page-transactiongood{
 	    display: flex;
     	justify-content: center;
 		margin-top: 1.5em;
+		margin-bottom: 10px;
 		.btn1{
 			margin-right: 15px;
 			width: 35%;

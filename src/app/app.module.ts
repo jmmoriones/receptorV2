@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Keyboard } from '@ionic-native/keyboard';
+import { Camera } from 'ionic-native';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -18,6 +20,7 @@ import { ModalPage } from '../pages/modalSuccess/modal';
 import { UserPage } from '../pages/infoUser/infoUser';
 import { EditUser } from '../pages/editInfoUser/edituser';
 import { SearchPage } from '../pages/searchUser/searchuser';
+import { PageTutorialPage } from '../pages/page-tutorial/page-tutorial';
 
 //Provider
 import { LoginProvider } from '../providers/login';
@@ -34,7 +37,8 @@ import { LoginProvider } from '../providers/login';
     RegisterPage,
     UserPage,
     EditUser,
-    SearchPage
+    SearchPage,
+    PageTutorialPage
   ],
   imports: [
     BrowserModule,
@@ -54,14 +58,17 @@ import { LoginProvider } from '../providers/login';
     RegisterPage,
     UserPage,
     EditUser,
-    SearchPage
+    SearchPage,
+    PageTutorialPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
-    BarcodeScanner
+    BarcodeScanner,
+    Keyboard,
+    Camera
   ]
 })
 export class AppModule {}

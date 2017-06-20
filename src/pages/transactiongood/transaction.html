@@ -1,31 +1,40 @@
 <ion-content>
+	<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
+		<ion-icon name="more"></ion-icon>
+	</button>
+	
 	<p class="m-top">Transacciones</p>
-	<fieldset class="content">
+	<fieldset class="content-home">
 		<legend>
 			<img [src]="productor['user'].img" alt="">
 		</legend>
+		<section>
 		<p>{{productor['user'].name}}</p>
-		<p><ion-icon name="person"></ion-icon> {{productor['user'].cedula}}</p>
+		<p><span class="icon-cc">C.C.</span> {{productor['user'].cedula}}</p>
 		<ion-list>
-			<ion-item>
-				<span>ID: </span>
-				<span>{{productor.dni}}</span>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="ios-calendar-outline"></ion-icon>
-				<span>{{productor.created_at | date}}</span>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="home"></ion-icon>
-				<span>{{productor.kilograms}} Kg</span>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="pin"></ion-icon>
-				<span>{{productor.zona}}</span>
-			</ion-item>
+			<ion-grid>
+				<ion-row>
+					<ion-col col-2 text-center><span class="f22">ID</span></ion-col>
+					<ion-col col-10><span>{{productor.dni}}</span></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-2 text-center><ion-icon name="ios-calendar-outline" class="f22"></ion-icon></ion-col>
+					<ion-col col-10><span>{{productor.created_at | date:'medium'}}</span></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-2 text-center><ion-icon name="home" class="f22"></ion-icon></ion-col>
+					<ion-col col-10><span>{{productor.kilograms}} Kg</span></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-2 text-center><ion-icon name="pin" class="f22"></ion-icon></ion-col>
+					<ion-col col-10><span>{{productor.zona}}</span></ion-col>
+				</ion-row>
+			</ion-grid>
 		</ion-list>
-		<p>Tipo de empaque</p>
-		<ion-grid>
+		<ion-grid class="empaque-peso">
+			<ion-row class="l17">
+				<p text-left>Tipo de empaque y peso</p>
+			</ion-row>
 			<ion-row>
 				<ion-col text-center>
 					<span color-white>{{productor.estopa}}</span>
@@ -41,6 +50,7 @@
 				</ion-col>
 			</ion-row>
 		</ion-grid>
+		</section>
 	</fieldset>
 	<div class="zone-btn">
 		<button ion-button round class="btn-scanner btn1" (click)="editUser(productor)">Editar</button>

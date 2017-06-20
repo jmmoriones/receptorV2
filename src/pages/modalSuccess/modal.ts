@@ -8,6 +8,9 @@ import { NavController} from 'ionic-angular';
 export class ModalPage {
   constructor(public navCtrl: NavController) {
     console.log("Load...")
+    setTimeout( () => {
+    	this.navCtrl.pop();
+    }, 3000)
   }
   goBack() {
     this.navCtrl.pop();
