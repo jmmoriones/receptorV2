@@ -9,7 +9,7 @@ import { HomePopover } from '../homePopover/homePopover';
 import { MorePage } from '../more/more';
 import { RegisterPage } from '../register/register';
 import { TransactionGoodPage } from '../transactiongood/transaction';
-import { PageTutorialPage } from '../page-tutorial/page-tutorial';
+//import { PageTutorialPage } from '../page-tutorial/page-tutorial';
 
 @Component({
 	selector: 'page-add',
@@ -23,8 +23,8 @@ export class addPage {
 	public ocultar: string = "block";
 	options: BarcodeScannerOptions;
 	constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public loginPro: LoginProvider, private keyboard: Keyboard, public modalCtrl: ModalController) {
-		let pModal = this.modalCtrl.create(PageTutorialPage);
-    	pModal.present();
+		/*let pModal = this.modalCtrl.create(PageTutorialPage);
+    	pModal.present();¨*/
 		this.keyboard.onKeyboardShow().subscribe(dt =>{
 			if(dt){
 				this.ocultar = "none";

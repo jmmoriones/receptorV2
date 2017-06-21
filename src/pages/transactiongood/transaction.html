@@ -3,13 +3,13 @@
 		<ion-icon name="more"></ion-icon>
 	</button>
 	
-	<p class="m-top">Transacciones</p>
+	<p class="m-top title">DATOS GENERALES</p>
 	<fieldset class="content-home">
 		<legend>
 			<img [src]="productor['user'].img" alt="">
 		</legend>
 		<section>
-		<p>{{productor['user'].name}}</p>
+		<p class="title">{{productor['user'].name}}</p>
 		<p><span class="icon-cc">C.C.</span> {{productor['user'].cedula}}</p>
 		<ion-list>
 			<ion-grid>
@@ -22,18 +22,19 @@
 					<ion-col col-10><span>{{productor.created_at | date:'medium'}}</span></ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col col-2 text-center><ion-icon name="home" class="f22"></ion-icon></ion-col>
+					<ion-col col-2 text-center><img src="./assets/images/peso.png" class="wpeso"></ion-col>
 					<ion-col col-10><span>{{productor.kilograms}} Kg</span></ion-col>
 				</ion-row>
 				<ion-row>
 					<ion-col col-2 text-center><ion-icon name="pin" class="f22"></ion-icon></ion-col>
 					<ion-col col-10><span>{{productor.zona}}</span></ion-col>
 				</ion-row>
+
 			</ion-grid>
 		</ion-list>
 		<ion-grid class="empaque-peso">
 			<ion-row class="l17">
-				<p text-left>Tipo de empaque y peso</p>
+				<p text-left class="title">Tipo de empaque y peso</p>
 			</ion-row>
 			<ion-row>
 				<ion-col text-center>

@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+
+//Provider
 import { LoginProvider } from '../../providers/login';
+
+import { HomePopover } from '../homePopover/homePopover';
 import { TransactionGoodPage } from '../transactiongood/transaction';
 
 /**
@@ -20,7 +24,7 @@ export class MorePage {
   isNew:boolean=false
   owner:any;
   public transaction: any;
-  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public loginPro: LoginProvider) { 
+  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public loginPro: LoginProvider, public popoverCtrl: PopoverController) { 
   
       this.transaction = navParams.get('productor');
       console.log(this.transaction);
@@ -86,4 +90,10 @@ export class MorePage {
   goodProcess(){
     this.navCtrl.push(TransactionGoodPage, {});
   }
+  presentPopover(event){
+		let popover = this.popoverCtrl.create(HomePopover);
+		popover.present({
+			ev: event
+		})
+	}
 }

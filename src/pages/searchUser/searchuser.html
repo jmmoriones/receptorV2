@@ -2,20 +2,32 @@
 	<div class="sec-search">
 		<div class="item-search">
 			<!--<ion-input type="number" class="input-search" ngModel="busqueda"></ion-input>-->
-			<ion-searchbar (ionInput)="getItems($event)" type="number" placeholder="Buscar por cedula"></ion-searchbar>
+			<ion-grid>
+				<ion-row>
+					<ion-col col-11>
+						<ion-searchbar (ionInput)="getItems($event)" type="number" placeholder="Buscar por cedula"></ion-searchbar>
+					</ion-col>
+					<ion-col col-1>
+						<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
+							<ion-icon name="more"></ion-icon>
+						</button>
+						
+					</ion-col>
+				</ion-row>
+			</ion-grid>
 		</div>
 	</div>
-	<p class="white text-center">Lista de productores</p>
+	<p class="title not-search text-center">Lista de productores</p>
 	<div class="none-bg">
 		<div *ngIf="users.length < 1">
-			<p>El productor no se encuentra registrado o el número de cédula es erróneo</p>
+			<p class="white text-center">El productor no se encuentra registrado o el número de cédula es erróneo</p>
 		</div>
 		<ion-list>
 			<ion-item *ngFor="let user of users">
 				<ion-avatar item-left>
 					<img [src]="user.img">
 				</ion-avatar>
-				<h2>{{user.name}}</h2>
+				<h2 class="title">{{user.name}}</h2>
 				<p>C.C: {{user.cedula}}</p>
 				<p><ion-icon name="calendar"></ion-icon> {{user.created_at | date:'medium'}}</p>
 				<button class="productor-arrow" (click)="goUserTransaction(user)">

@@ -11,7 +11,8 @@
 		</legend>
 		<form (ngSubmit)="submit(f.value)" #f="ngForm" class="form-login">
 		<div class="select-person">
-			<h3>{{repOne.email}}</h3>
+			<h3 class="title">{{repOne.name}}</h3>
+			<p class="m0">Receptor</p>
 		</div>
   	<ion-list>
 	  <div class="hide-password"  *ngIf="!hidePass == false">

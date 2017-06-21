@@ -2,6 +2,20 @@ ion-content{
     @import url('https://fonts.googleapis.com/css?family=Abel');
     font-family: 'Abel', sans-serif !important;
 }
+.title{
+    @import url('https://fonts.googleapis.com/css?family=Unica+One');
+    font-family: 'Unica One', cursive !important;
+}
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child,.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner{
+    border-bottom-color: transparent !important;
+    box-shadow: inherit !important;
+}
+.list-md .item-input:last-child {
+    border-bottom:inherit !important;
+}
+.wpeso{
+    width: 20px;
+}
 ion-col.col {
     padding: 0px;
     color: #ddd;

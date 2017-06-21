@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, PopoverController } from 'ionic-angular';
 
 //Provider
 import { LoginProvider } from '../../providers/login';
+import { Keyboard } from '@ionic-native/keyboard';
+
 import { MorePage } from '../more/more';
+import { HomePopover } from '../homePopover/homePopover';
 
 @Component({
   selector: 'page-search',
@@ -14,13 +17,21 @@ export class SearchPage {
   public productors: any;
 	public lengthUser: boolean;
 	public currentUsers=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private prvLogin: LoginProvider) {}
+	public ocultar: string = "block";
+  constructor(public navCtrl: NavController, public navParams: NavParams, private prvLogin: LoginProvider, public popoverCtrl: PopoverController, private keyboard: Keyboard) {
+		this.keyboard.onKeyboardHide().subscribe(dt =>{
+			if(dt){
+				//this.ocultar = "block";
+				this.users=this.currentUsers;
+			}
+		});
+	}
   ionViewWillEnter(){
 		 this.loadTransaction();
 	}
   loadTransaction(){
     this.prvLogin.getUsersTransaction().subscribe(data => {
-			this.users = [];
+			//this.users = [];
       if(data.status == 200){
         this.users = data.results;
         console.log(this.users);
@@ -57,5 +68,11 @@ export class SearchPage {
     let productor={user:user,kilograms:null,raya:null,kilo:null,estopa:null};
     console.log(productor);
 		this.navCtrl.push(MorePage, {productor});
+	}
+	presentPopover(event){
+		let popover = this.popoverCtrl.create(HomePopover);
+		popover.present({
+			ev: event
+		})
 	}
 }

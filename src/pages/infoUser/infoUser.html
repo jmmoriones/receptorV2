@@ -2,12 +2,12 @@
 	<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
 		<ion-icon name="more"></ion-icon>
 	</button>
-	<p class="m-top">Datos personales</p>
+	<p class="m-top title">Datos Generales</p>
 	<fieldset class="fieldset" *ngFor=" let user of infoUser">
 		<legend>
 			<img src="{{user.images}}" alt="">
 		</legend>
-		<p>{{user.name}}</p>
+		<p class="title">{{user.name}}</p>
 		<p><ion-icon name="person"></ion-icon> Receptor</p>
 		<ion-list>
 			<p class="hide">{{user.id}}</p>

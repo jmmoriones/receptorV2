@@ -3,6 +3,17 @@ page-more {
     .content-more{
         background-image: inherit;
         background-color: #424242;
+        .pop-btn{
+			color: #00e6ff;
+			background-color: transparent;
+			float:right;
+			font-size: 20px;
+			box-shadow: inherit !important;
+            margin-bottom:20px;
+			&:hover{
+				background-color: inherit;	
+			}
+		}
     }
     .item-search{
         .input-search{
@@ -70,6 +81,31 @@ page-more {
         margin: 3px;
         margin-bottom: 8px !important;
         p.hour-date{padding-left: 14px;}
+        .w30{
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0px;
+            ion-item{
+                .item-inner{
+                    .input-wrapper{
+                        flex-direction: column-reverse !important;
+                        text-align: center;
+                        ion-label{
+                            color: #ededed;
+                        }
+                    }
+                }
+                width: 30%;
+                display: inline-block;
+                vertical-align: top;
+                ion-input{
+                    margin:0px;
+                    box-shadow: 0px 0px 0px;
+                    input{margin:5px;}
+                }
+            }
+        }
         h4{
             font-size: 1.5rem;
             padding-left: 14px;

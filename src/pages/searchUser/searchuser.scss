@@ -1,8 +1,26 @@
 page-search{
 	.white{color:white; text-align:center; font-size:18px;}
 	ion-content{
+		.not-search{
+				 color: white;
+				 margin:0px;
+				 margin-bottom:10px;
+				 text-align: center;
+			 }
 		background-image: inherit !important;
 		background-color: #424242 !important;
+		.pop-btn{
+			color: #00e6ff;
+			background-color: transparent;
+			position: absolute;
+			top: 0px;
+			right: -20px;
+			font-size: 20px;
+			box-shadow: inherit !important;
+			&:hover{
+				background-color: inherit;	
+			}
+		}
 	}
 	.item-search{
 		    background-color: transparent !important;
@@ -29,8 +47,8 @@ page-search{
 		 background-image: none !important;
 		 background-color:transparent;
 		 ion-item{
-				 background-color: transparent;
-				 padding-left: 0px;
+				 background-color: #4f4f4f;
+				 margin-bottom: 5px;
 				 ion-avatar{
 					 img{
 						width: 5em;

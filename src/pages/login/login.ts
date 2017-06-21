@@ -29,7 +29,7 @@ export class Login {
   constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, public loginPro: LoginProvider, public actionSheetCtrl: ActionSheetController) {
     this.repositories = [];
 
-    this.repOne = {email:"Seleccione un usuario", img:"./assets/images/avatar-user.png"};
+    this.repOne = {name:"Seleccione un usuario", img:"./assets/images/avatar-user.png", email: null};
     if( this.user.pass.length === 4 ){
       console.log("llego");
     }
@@ -95,6 +95,6 @@ export class Login {
   backUsers(){
     this.bl = false;
     this.hidePass = false;
-    this.repOne = {email:"Seleccione un usuario", img:"./assets/images/avatar-user.png"};
+    this.repOne = {name:"Seleccione un usuario", img:"./assets/images/avatar-user.png"};
   }
 }
