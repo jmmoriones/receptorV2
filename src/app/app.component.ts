@@ -11,7 +11,7 @@ import { Login } from '../pages/login/login';
 })
 export class MyApp {
   rootPage:any = null;
-
+  
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public prvLogin: LoginProvider) {
     platform.ready().then(() => {
       prvLogin.openDataBase().then(() => {

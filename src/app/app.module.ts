@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Keyboard } from '@ionic-native/keyboard';
-import { Camera } from 'ionic-native';
+import { Camera} from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';

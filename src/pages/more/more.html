@@ -6,7 +6,8 @@
 		<ion-list>
 			<ion-item>
 				<ion-avatar item-left>
-					<img [src]="transaction['user'].img">
+					<img *ngIf="transaction['user'].img != null" [src]="transaction['user'].img">
+					<img *ngIf="transaction['user'].img == null" src="./assets/images/avatar-user.png">
 				</ion-avatar>
 				<h2 text-uppercase>{{transaction['user'].name}}</h2>
 				<p>C.C. {{transaction['user'].cedula}}</p>
@@ -38,8 +39,9 @@
 			</ion-item>
 		</ion-list>
 		<ion-item class="select-zona">
+			
 			<ion-label>
-				<ion-col col-2 text-center><ion-icon name="pin" class="f22"></ion-icon></ion-col>
+				<ion-icon name="pin" class="f22"></ion-icon>
 			</ion-label>
 			<ion-select name="zona" [(ngModel)]="transaction.zona" class="white" placeholder="Zona">
 				<ion-option value="z1" value="zona 1">Zona 1</ion-option>

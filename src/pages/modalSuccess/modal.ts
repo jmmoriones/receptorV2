@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 
-import { addPage } from '../add/add';
+//import { addPage } from '../add/add';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-modal',
@@ -12,11 +13,11 @@ export class ModalPage {
     console.log("Load...")
     setTimeout( () => {
     	this.navCtrl.pop();
-      this.navCtrl.push(addPage);
+      this.navCtrl.push(HomePage);
     }, 3000)
   }
   goBack() {
     this.navCtrl.pop();
-    this.navCtrl.push(addPage);
+    this.navCtrl.push(HomePage);
   }
 }

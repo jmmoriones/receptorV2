@@ -21,6 +21,7 @@ export class addPage {
 	public currentProductors=[];
 	public showStyle: boolean = false;
 	public ocultar: string = "block";
+	public imageError : string;
 	options: BarcodeScannerOptions;
 	constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public loginPro: LoginProvider, private keyboard: Keyboard, public modalCtrl: ModalController) {
 		/*let pModal = this.modalCtrl.create(PageTutorialPage);
@@ -124,14 +125,13 @@ ionViewWillEnter(){
 			message: 'El documento que haz intentado escanear no existe, deseas registrarlo?',
 			buttons: [
 				{
-					text: 'Disagree',
+					text: 'Cancelar',
 					handler: () => {
 						console.log('Disagree clicked');
-						
 					}
 				},
 				{
-					text: 'Agree',
+					text: 'Agregar',
 					handler: () => {
 						this.navCtrl.push(RegisterPage,barCode);
 					}

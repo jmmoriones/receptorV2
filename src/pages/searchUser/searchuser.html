@@ -25,7 +25,8 @@
 		<ion-list>
 			<ion-item *ngFor="let user of users">
 				<ion-avatar item-left>
-					<img [src]="user.img">
+					<img *ngIf="user.img != null" [src]="user.img">
+					<img *ngIf="user.img == null" src="./assets/images/avatar-user.png">
 				</ion-avatar>
 				<h2 class="title">{{user.name}}</h2>
 				<p>C.C: {{user.cedula}}</p>

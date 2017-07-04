@@ -6,9 +6,9 @@
                 <img src={{getArray[0].images}}>
             </legend>
             <ion-list>
-                <ion-grid>
+                <ion-grid class="editUser">
                     <ion-row>
-                        <ion-col col-2>
+                        <ion-col col-2 text-center>
                             <ion-icon name="people"></ion-icon>
                         </ion-col>
                         <ion-col col-10>
@@ -18,7 +18,7 @@
                         </ion-col>
                     </ion-row>
                     <ion-row>
-                        <ion-col col-2>
+                        <ion-col col-2 text-center>
                             <ion-icon name="ios-call-outline"></ion-icon>
                         </ion-col>
                         <ion-col col-10>
@@ -28,7 +28,7 @@
                         </ion-col>
                     </ion-row>
                     <ion-row>
-                        <ion-col col-2>
+                        <ion-col col-2 text-center>
                             <ion-icon name="ios-key-outline"></ion-icon>
                         </ion-col>
                         <ion-col col-10>
@@ -47,4 +47,6 @@
 		<button ion-button  type="submit" color="secondary" [disabled]="!f.valid" class="btn-scanner" round>Enviar</button>
 	</div>
     </form>
+    <button ion-button block (click)="getPicture()">Toma una foto</button>
+    <img [src]="image" *ngIf="image" />
 </ion-content>

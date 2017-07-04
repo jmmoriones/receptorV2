@@ -6,7 +6,8 @@
 	<p class="m-top title">DATOS GENERALES</p>
 	<fieldset class="content-home">
 		<legend>
-			<img [src]="productor['user'].img" alt="">
+			<img *ngIf="productor['user'].img != null" [src]="productor['user'].img">
+			<img *ngIf="productor['user'].img == null" src="./assets/images/avatar-user.png">
 		</legend>
 		<section>
 		<p class="title">{{productor['user'].name}}</p>

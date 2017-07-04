@@ -1,6 +1,6 @@
 <ion-content padding class="ion-content">   
 	<div class="header-home" [style.display]="ocultar"><!-- [style.display]="getOcultar()" -->
-		<img src="./assets/images/logo_home.png" class="logo_home">
+		<img src="./assets/images/icon.png" class="logo_home">
 		<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
 			<ion-icon name="more"></ion-icon>
 		</button>
@@ -18,7 +18,8 @@
 		<ion-list>
 			<ion-item *ngFor="let productor of productors">
 				<ion-avatar item-left>
-					<img [src]="productor['user'].img">
+					<img *ngIf="productor['user'].img != null" [src]="productor['user'].img">
+					<img *ngIf="productor['user'].img == null" src="./assets/images/avatar-user.png">
 				</ion-avatar>
 				<ion-grid>
 					<ion-row>

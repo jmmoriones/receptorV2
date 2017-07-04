@@ -43,6 +43,18 @@ page-edituser{
 		.grid{
 			color: white;
 		}
+		ion-list{
+			.editUser{
+				ion-row{
+					ion-col{	
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						ion-icon{font-size:24px;}
+					}
+				}
+			}
+		}
 	}
 	.zone-btn{
 	    display: flex;

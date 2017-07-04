@@ -14,7 +14,8 @@ export class TransactionGoodPage {
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public navParams: NavParams, public popoverCtrl: PopoverController) {
     console.log("Load...")
     this.productor = navParams.get('productor');
-    console.log(this.productor)
+    console.log('Productor');
+    console.log(this.productor);
   }
   imprimir(){
     let pModal = this.modalCtrl.create(ModalPage);

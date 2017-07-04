@@ -53,7 +53,8 @@ export class MorePage {
           tran.user=this.transaction.user;
           let productor=tran;
           this.navCtrl.push(TransactionGoodPage, {productor});
-          //console.log("Resultado productor: "+this.productor.kilo);
+          console.log('Creacion de transaccion');
+          console.log(productor);
         }else{
           let alert = this.alertCtrl.create({
               title: "Error",
@@ -69,11 +70,12 @@ export class MorePage {
       this.loginPro.updateTransaction(tran).subscribe(data => {
         console.log(data)
         if(data.status === 200){
+          tran=data.results;
           tran.user=this.transaction.user;
-          let productor=data.results;
+          let productor=tran;
           this.navCtrl.push(TransactionGoodPage, {productor});
-          console.log("Resultado productor: "+productor);
-          console.log(data.results);
+          console.log('edicion del productor');
+          console.log(productor);
         }else{
           let alert = this.alertCtrl.create({
               title: "Error",
