@@ -45,8 +45,9 @@
 	</fieldset>
 	<div class="zone-btn">
 		<button ion-button  type="submit" color="secondary" [disabled]="!f.valid" class="btn-scanner" round>Enviar</button>
+        
 	</div>
     </form>
-    <button ion-button block (click)="getPicture()">Toma una foto</button>
+    <button ion-button  (click)="camara()">Toma una foto</button>
     <img [src]="image" *ngIf="image" />
 </ion-content>

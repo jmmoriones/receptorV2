@@ -15,35 +15,40 @@
 		<p class="transac-title text-center">Transacciones Recientes</p>
 	</div>
 	<div class="none-bg">
-		<ion-list>
-			<ion-item *ngFor="let productor of productors">
-				<ion-avatar item-left>
-					<img *ngIf="productor['user'].img != null" [src]="productor['user'].img">
-					<img *ngIf="productor['user'].img == null" src="./assets/images/avatar-user.png">
-				</ion-avatar>
-				<ion-grid>
-					<ion-row>
-						<ion-col>
-							<h2>{{productor['user'].name}}</h2>
-						</ion-col>
-					</ion-row>
-					<ion-row>
-						<ion-col col-2>ID:</ion-col>
-						<ion-col col-10>{{productor.dni}}</ion-col>
-					</ion-row>
-					<ion-row>
-						<ion-col col-2>C.C.</ion-col>
-						<ion-col col-10>{{productor.user.cedula}}</ion-col>
-					</ion-row>
-					<ion-row>
-						<ion-col col-2><ion-icon name="calendar"></ion-icon></ion-col>
-						<ion-col col-10>{{productor.created_at | date:'medium'}}</ion-col>
-					</ion-row>
-				</ion-grid>
-				<button class="productor-arrow" (click)="goUserTransaction(productor)">
-					<ion-icon name="ios-arrow-forward-outline"></ion-icon>
-				</button>
-			</ion-item>
-		</ion-list>
+		<ion-content>
+			<ion-list>
+				<ion-refresher (ionRefresh)="doRefresh($event)">
+					<ion-refresher-content></ion-refresher-content>
+				</ion-refresher>
+				<ion-item *ngFor="let productor of productors">
+					<ion-avatar item-left>
+						<img *ngIf="productor['user'].img != null" [src]="productor['user'].img">
+						<img *ngIf="productor['user'].img == null" src="./assets/images/avatar-user.png">
+					</ion-avatar>
+					<ion-grid>
+						<ion-row>
+							<ion-col>
+								<h2>{{productor['user'].name}}</h2>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-2>ID:</ion-col>
+							<ion-col col-10>{{productor.dni}}</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-2>C.C.</ion-col>
+							<ion-col col-10>{{productor.user.cedula}}</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col col-2><ion-icon name="calendar"></ion-icon></ion-col>
+							<ion-col col-10>{{productor.created_at | date:'medium'}}</ion-col>
+						</ion-row>
+					</ion-grid>
+					<button class="productor-arrow" (click)="goUserTransaction(productor)">
+						<ion-icon name="ios-arrow-forward-outline"></ion-icon>
+					</button>
+				</ion-item>
+			</ion-list>
+		</ion-content>
 	</div>
 </ion-content>

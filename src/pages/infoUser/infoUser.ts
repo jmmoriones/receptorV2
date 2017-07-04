@@ -21,11 +21,9 @@ export class UserPage {
 		});
 		this.prvLogin.currentUser().then((data) => {
 			this.infoUser.push(data);
-			console.log(this.infoUser);
 		})
 	}
 	editInfo(user){
-		console.log(user);
 		this.navCtrl.push(EditUser, {user:user})
 	}
 	presentPopover(event){

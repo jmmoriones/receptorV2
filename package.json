@@ -21,7 +21,7 @@
         "@angular/platform-browser": "4.1.0",
         "@angular/platform-browser-dynamic": "4.1.0",
         "@ionic-native/barcode-scanner": "^3.10.3",
-        "@ionic-native/camera": "^3.12.1",
+        "@ionic-native/camera": "^3.13.0",
         "@ionic-native/core": "3.7.0",
         "@ionic-native/keyboard": "^3.12.1",
         "@ionic-native/native-storage": "^3.12.1",

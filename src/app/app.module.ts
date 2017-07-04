@@ -62,13 +62,13 @@ import { LoginProvider } from '../providers/login';
     PageTutorialPage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
     BarcodeScanner,
     Keyboard,
-    Camera
   ]
 })
 export class AppModule {}

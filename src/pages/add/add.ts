@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, PopoverController, ModalController} from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
-import { Camera, CameraOptions } from 'ionic-native';
 
 import { LoginProvider } from '../../providers/login';
 import { HomePopover } from '../homePopover/homePopover';
@@ -29,13 +28,11 @@ export class addPage {
 		this.keyboard.onKeyboardShow().subscribe(dt =>{
 			if(dt){
 				this.ocultar = "none";
-				console.log("Abrio");
 			}
 		});
 		this.keyboard.onKeyboardHide().subscribe(dt =>{
 			if(dt){
 				this.ocultar = "block";
-				console.log("cerro");
 			}
 		});
 	}
@@ -48,7 +45,6 @@ ionViewWillEnter(){
 			this.productors = [];
 			if(data.status === 200){
 				this.productors = data.results;
-				console.log(this.productors);
 
 				for(let c of data.results){
 					//c.search=c.user.name+c.kilograms;
@@ -78,7 +74,6 @@ ionViewWillEnter(){
 					showFlipCameraButton : true, // iOS and Android
 					showTorchButton : true, // iOS and Android
 					torchOn: false, // Android, launch with the torch switched on (if available)
-					prompt : "Place a barcode inside the scan area", // Android
 					resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
 					formats : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
 					orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
@@ -155,17 +150,12 @@ ionViewWillEnter(){
 			})
 		}
 	}
-	openCamera(){
-		let cameraOption : CameraOptions = {
-			quality: 80,
-			destinationType: Camera.DestinationType.DATA_URL,
-			sourceType: Camera.PictureSourceType.CAMERA,
-			allowEdit: false,
-			encodingType: Camera.EncodingType.JPEG,
-			saveToPhotoAlbum: false
-		};
-		Camera.getPicture(cameraOption).then((imageData) => {
-			alert(imageData);
-		}).catch(err => console.log(err));
+	doRefresh(refresher) {
+		console.log('Begin async operation', refresher);
+
+		setTimeout(() => {
+			this.loadTransactions();
+		refresher.complete();
+		}, 2000);
 	}
 }

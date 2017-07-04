@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 
 import { UserPage } from '../infoUser/infoUser';
 
 //provider
-//import { Camera } from '@ionic-native/camera';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { LoginProvider } from '../../providers/login';
 
@@ -13,10 +12,10 @@ import { LoginProvider } from '../../providers/login';
 	templateUrl: 'edituser.html'
 })
 export class EditUser {
-	image: string = null;
+	public base64Image: string;
 	public user: any = {_id: null,name: null, img: null, phone: null, password: null};
 	public getArray: any;
-	constructor(public navCtrl: NavController, public navParams: NavParams, public prvLogin: LoginProvider, public alertCtrl: AlertController, private camera: Camera) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, public prvLogin: LoginProvider, public alertCtrl: AlertController, private camera: Camera, public platform: Platform) {
 		this.getArray = navParams.get('user');
 		console.log(this.getArray);
 		this.user = {_id: this.getArray[0].id,name: this.getArray[0].name,img: this.getArray[0].images,phone: this.getArray[0].phone, password:this.getArray[0].password}
@@ -36,18 +35,26 @@ export class EditUser {
 			}
 		});
 	}
-	getPicture(){
-		let options: CameraOptions = {
-			destinationType: this.camera.DestinationType.DATA_URL,
-			targetWidth: 1000,
-			targetHeight: 1000,
-			quality: 100
-		}
-		this.camera.getPicture( options )
-			.then(imageData => {
-				this.image = `data:image/jpeg;base64,${imageData}`;
-			}).catch(error =>{
-				console.error( error );
+	 camara() {
+
+			if (!this.platform.is("cordova")) {
+				console.log('Error');
+			}
+
+			const options: CameraOptions = {
+			quality: 50,
+			destinationType: this.camera.DestinationType.FILE_URI,
+			encodingType: this.camera.EncodingType.JPEG,
+			mediaType: this.camera.MediaType.PICTURE,
+			correctOrientation: true,
+			saveToPhotoAlbum: true
+			}
+
+			this.camera.getPicture(options).then((imageData) => {
+			this.base64Image = imageData;
+			}, (err) => {
+				console.log(err);
 			});
-	}
+
+		}
 }
