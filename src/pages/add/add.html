@@ -2,53 +2,53 @@
 	<div class="header-home" [style.display]="ocultar"><!-- [style.display]="getOcultar()" -->
 		<img src="./assets/images/icon.png" class="logo_home">
 		<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
-			<ion-icon name="more"></ion-icon>
+			<ion-icon name="icon-puntos"></ion-icon>
 		</button>
 		<p>Utiliza el Scanner para obtener información de los productos y generar nuevos contenidos</p>
 		<button ion-button (click)="scanBarcode()" round class="btn-scanner title" text-capitalize>Scanear</button>
 	</div>
 	<div class="sec-search">
-		<div class="item-search">
-			<ion-searchbar (ionInput)="getItems($event)" type="number" placeholder="Buscar"></ion-searchbar>
-		</div>
-		<!--<ion-icon name="search" class="icon-search"></ion-icon>-->
+		<!--<form (ngSubmit)="submit()">-->
+			<div class="item-search">
+				<ion-searchbar type="number" name="buscador"  placeholder="Buscar" [(ngModel)]="searchQuery" (keyup)="submit($ev)"></ion-searchbar>
+			</div>
+			<!--<button type="submit" ion-button round><ion-icon name="search" (class)="icon-search"></ion-icon></button>-->
+		<!--</form>-->
 		<p class="transac-title text-center">Transacciones Recientes</p>
 	</div>
 	<div class="none-bg">
-		<ion-content>
-			<ion-list>
-				<ion-refresher (ionRefresh)="doRefresh($event)">
-					<ion-refresher-content></ion-refresher-content>
-				</ion-refresher>
-				<ion-item *ngFor="let productor of productors">
-					<ion-avatar item-left>
-						<img *ngIf="productor['user'].img != null" [src]="productor['user'].img">
-						<img *ngIf="productor['user'].img == null" src="./assets/images/avatar-user.png">
-					</ion-avatar>
-					<ion-grid>
-						<ion-row>
-							<ion-col>
-								<h2>{{productor['user'].name}}</h2>
-							</ion-col>
-						</ion-row>
-						<ion-row>
-							<ion-col col-2>ID:</ion-col>
-							<ion-col col-10>{{productor.dni}}</ion-col>
-						</ion-row>
-						<ion-row>
-							<ion-col col-2>C.C.</ion-col>
-							<ion-col col-10>{{productor.user.cedula}}</ion-col>
-						</ion-row>
-						<ion-row>
-							<ion-col col-2><ion-icon name="calendar"></ion-icon></ion-col>
-							<ion-col col-10>{{productor.created_at | date:'medium'}}</ion-col>
-						</ion-row>
-					</ion-grid>
-					<button class="productor-arrow" (click)="goUserTransaction(productor)">
-						<ion-icon name="ios-arrow-forward-outline"></ion-icon>
-					</button>
-				</ion-item>
-			</ion-list>
-		</ion-content>
+		<ion-list>
+			<ion-item *ngFor="let productor of productors">
+				<ion-avatar item-left>
+					<img *ngIf="productor['user'].img != null" [src]="productor['user'].img">
+					<img *ngIf="productor['user'].img == null" src="./assets/images/avatar-user.png">
+				</ion-avatar>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							<h2>{{productor['user'].name}}</h2>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-2><ion-icon name="icon-id" class="font-add"></ion-icon></ion-col>
+						<ion-col col-10>{{productor.dni}}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-2><ion-icon name="icon-cedula" class="font-add"></ion-icon></ion-col>
+						<ion-col col-10>{{productor.user.cedula}}</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col col-2><ion-icon name="icon-calendario" class="font-add"></ion-icon></ion-col>
+						<ion-col col-10>{{productor.created_at | date:'medium'}}</ion-col>
+					</ion-row>
+				</ion-grid>
+				<button class="productor-arrow" (click)="goUserTransaction(productor)">
+					<ion-icon name="icon-adelante" class="adelante"></ion-icon>
+				</button>
+			</ion-item>
+		</ion-list>
+		<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+			<ion-infinite-scroll-content></ion-infinite-scroll-content>
+		</ion-infinite-scroll>
 	</div>
 </ion-content>

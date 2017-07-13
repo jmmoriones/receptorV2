@@ -6,7 +6,7 @@ page-transactiongood{
 			position: absolute;
 			top: 0px;
 			right: 0px;
-			font-size: 20px;
+			font-size: 15px;
 			box-shadow: inherit !important;
 			&:hover{
 				background-color: inherit;	
@@ -57,6 +57,11 @@ page-transactiongood{
 			font-size: 1.3em;
 			color: #ebebeb;
 			margin: 0px;
+		}
+		.info-productor{
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 		legend{
 			margin: 0 auto;

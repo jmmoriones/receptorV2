@@ -113,8 +113,8 @@ export class LoginProvider {
 			return db.executeSql('DELETE FROM users',[]);
 		})
 	}
-	getTransaction(){
-		return this.http.get("http://35.184.34.17/api/transactions")
+	getTransaction(num){
+		return this.http.get("http://35.184.34.17/api/transactions/"+num)
 			.map((res: Response)=>res.json());
 	}
 	editUser(data){
@@ -135,8 +135,19 @@ export class LoginProvider {
 			console.error('Unable to open database: ', err);
 		});
 	}
-	getUsersTransaction(){
-		return this.http.get('http://35.184.34.17/api/users')
+	getUsersTransaction(num){
+		return this.http.get('http://35.184.34.17/api/users/'+num)
+			.map((response:Response)=>response.json());
+	}
+	searchTransaction(text:any){
+		return this.http.post("http://35.184.34.17/api/transactions/search/", text)
+		.map((response:Response)=>response.json());
+	}
+	searchUsers(user:any){
+		return this.http.post("http://35.184.34.17/api/users/search/",user)		.map((response:Response)=>response.json());
+	}
+	print(value:any){
+		return this.http.post("http://35.184.34.17/api/print/", value)
 			.map((response:Response)=>response.json());
 	}
 }

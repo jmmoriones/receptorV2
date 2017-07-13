@@ -18,7 +18,8 @@ export class TransactionGoodPage {
     console.log(this.productor);
   }
   imprimir(){
-    let pModal = this.modalCtrl.create(ModalPage);
+    let prod = this.productor;
+    let pModal = this.modalCtrl.create(ModalPage, {prod});
     pModal.present();
   }
   editUser(productor){

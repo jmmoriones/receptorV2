@@ -1,0 +1,148 @@
+$icomoon-font-path: $font-path !default;
+@import "codigos";
+
+@font-face {
+  font-family: 'TrazAgro';
+  src:
+    url('#{$icomoon-font-path}/TrazAgro.ttf?faa1xx') format('truetype'),
+    url('#{$icomoon-font-path}/TrazAgro.woff?faa1xx') format('woff'),
+    url('#{$icomoon-font-path}/TrazAgro.svg?faa1xx#TrazAgro') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ion-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+ display: inline-block;
+  font-family: 'TrazAgro' !important;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+  text-transform: none;
+  speak: none;
+
+  &::before {
+    display: inline-block;
+  }
+}
+
+.ion-md-icon-borrar {
+  &:before {
+    content: $icon-borrar;
+  }
+}
+.ion-md-icon-checkmark {
+  &:before {
+    content: $icon-checkmark;
+  }
+}
+.ion-md-icon-abajo {
+  &:before {
+    content: $icon-abajo;
+  }
+}
+.ion-md-icon-adelante {
+  &:before {
+    content: $icon-adelante;
+  }
+}
+.ion-md-icon-agregar {
+  &:before {
+    content: $icon-agregar;
+  }
+}
+.ion-md-icon-arriba {
+  &:before {
+    content: $icon-arriba;
+  }
+}
+.ion-md-icon-arroba {
+  &:before {
+    content: $icon-arroba;
+  }
+}
+.ion-md-icon-atras {
+  &:before {
+    content: $icon-atras;
+  }
+}
+.ion-md-icon-buscar {
+  &:before {
+    content: $icon-buscar;
+  }
+}
+.ion-md-icon-cafe {
+  &:before {
+    content: $icon-cafe;
+  }
+}
+.ion-md-icon-calendario {
+  &:before {
+    content: $icon-calendario;
+  }
+}
+.ion-md-icon-candado {
+  &:before {
+    content: $icon-candado;
+  }
+}
+.ion-md-icon-cedula {
+  &:before {
+    content: $icon-cedula;
+  }
+}
+.ion-md-icon-escaner {
+  &:before {
+    content: $icon-escaner;
+  }
+}
+.ion-md-icon-hoja {
+  &:before {
+    content: $icon-hoja;
+  }
+}
+.ion-md-icon-id {
+  &:before {
+    content: $icon-id;
+  }
+}
+.ion-md-icon-lapiz {
+  &:before {
+    content: $icon-lapiz;
+  }
+}
+.ion-md-icon-mensaje {
+  &:before {
+    content: $icon-mensaje;
+  }
+}
+.ion-md-icon-peso {
+  &:before {
+    content: $icon-peso;
+  }
+}
+.ion-md-icon-puntos {
+  &:before {
+    content: $icon-puntos;
+  }
+}
+.ion-md-icon-telefono {
+  &:before {
+    content: $icon-telefono;
+  }
+}
+.ion-md-icon-usuario {
+  &:before {
+    content: $icon-usuario;
+  }
+}
+.ion-md-icon-zona {
+  &:before {
+    content: $icon-zona;
+  }
+}
+

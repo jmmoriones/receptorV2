@@ -15,7 +15,7 @@ page-search{
 			position: absolute;
 			top: 0px;
 			right: -20px;
-			font-size: 20px;
+			font-size: 15px;
 			box-shadow: inherit !important;
 			&:hover{
 				background-color: inherit;	
@@ -75,5 +75,19 @@ page-search{
 					 }
 				 }
 			 }
+			 ion-list{
+				 ion-item{
+					 .item-inner{
+						 border-bottom:inherit !important;
+					 }
+				 }
+			 }
+	 
+	 
+	 
+	 
 	 }
+	 .adelante{
+		font-size: 15px;
+	}
 }

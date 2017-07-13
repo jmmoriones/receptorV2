@@ -1,13 +1,13 @@
 <ion-content>
 	<a href="#" (click)="backUsers()" *ngIf="!bl == false" class="back">
-		<ion-icon name="ios-arrow-back-outline"></ion-icon>
+		<ion-icon name="icon-atras"></ion-icon>
 	</a>
 	<ion-header>
 		<img src="./assets/images/logo-01.png" class="logo">
 	</ion-header>
 <fieldset class="content-home">
 		<legend>
-			<img [src]="repOne['img']" alt="">
+			<img [src]="repOne['img']">
 		</legend>
 		<form (ngSubmit)="submit(f.value)" #f="ngForm" class="form-login">
 		<div class="select-person">

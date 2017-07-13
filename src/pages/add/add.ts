@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, AlertController, PopoverController, ModalController} from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, AlertController, PopoverController, ModalController, Searchbar} from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { BarcodeScanner,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 
@@ -15,16 +15,18 @@ import { TransactionGoodPage } from '../transactiongood/transaction';
 	templateUrl: 'add.html'
 })
 export class addPage {
+	@ViewChild('searchbar') searchbar: Searchbar;
 	public codes: any = [];
-	public productors: any;
+	public productors: any=[];
 	public currentProductors=[];
 	public showStyle: boolean = false;
 	public ocultar: string = "block";
 	public imageError : string;
+	public num: number = 0;
+	public pages:number=1;
+	public searchQuery: any;
 	options: BarcodeScannerOptions;
 	constructor(public alertCtrl: AlertController,private barcode: BarcodeScanner,public navCtrl: NavController, public popoverCtrl: PopoverController, public loginPro: LoginProvider, private keyboard: Keyboard, public modalCtrl: ModalController) {
-		/*let pModal = this.modalCtrl.create(PageTutorialPage);
-    	pModal.present();¨*/
 		this.keyboard.onKeyboardShow().subscribe(dt =>{
 			if(dt){
 				this.ocultar = "none";
@@ -33,26 +35,46 @@ export class addPage {
 		this.keyboard.onKeyboardHide().subscribe(dt =>{
 			if(dt){
 				this.ocultar = "block";
+				//this.refreshSearch();
 			}
 		});
 	}
-ionViewWillEnter(){
-	
+	ionViewWillEnter(){	
 		 this.loadTransactions();
 	}
+	ngAfterViewInit(){
+		// this.scrollContent();
+		// this.content.ionScrollEnd.subscribe((data) => {
+		// 	let dimensions = this.content.getContentDimensions();
+		// 	console.log("Dimensions");
+		// 	console.log(dimensions.scrollTop);
+		// 	console.log("scroll");
+		// 	console.log(data);
+		// });
+	}
+	submit(ev){
+		this.searchTransactions();
+	}
 	loadTransactions(){
-		this.loginPro.getTransaction().subscribe(data => {
-			this.productors = [];
+		this.num = this.num+1;
+		this.loginPro.getTransaction(this.num).subscribe(data => {
+			//this.productors = [];
 			if(data.status === 200){
-				this.productors = data.results;
-
-				for(let c of data.results){
-					//c.search=c.user.name+c.kilograms;
-					c.search=c.user.cedula+c.dni;
-					this.currentProductors.push(c);
+				for(let item of data.results){
+					this.productors.push(item);
 				}
-			}else{
-				console.log("Error, no ha consumido nada")
+				this.pages=data.pages;
+			}
+		})
+	}
+	searchTransactions(){
+		console.log(this.searchQuery);
+		let input = this.searchQuery;
+		this.loginPro.searchTransaction({value:input}).subscribe(data =>{
+			console.log(data);
+			if(data.status === 200){
+				this.productors = [];
+				this.productors = data.results;
 			}
 		})
 	}
@@ -138,24 +160,16 @@ ionViewWillEnter(){
 	goUserTransaction(productor){
 		this.navCtrl.push(TransactionGoodPage, {productor});
 	}
-	getItems(ev: any) {
-		// Reset items back to all of the items
-		this.refresh();
-		// set val to the value of the searchbar
-		let val = ev.target.value;
-		// if the value is an empty string don't filter the items
-		if (val && val.trim() != '') {
-			this.productors = this.productors.filter((item) => {
-				return (item.search.toLowerCase().indexOf(val.toLowerCase()) > -1);
-			})
-		}
-	}
-	doRefresh(refresher) {
-		console.log('Begin async operation', refresher);
-
+	doInfinite(infiniteScroll) {
+		console.log('Begin async operation');
 		setTimeout(() => {
-			this.loadTransactions();
-		refresher.complete();
-		}, 2000);
+			console.log(this.num);
+			console.log(this.pages);
+			if(this.num<this.pages){
+				this.loadTransactions();
+				console.log('Carga nuevas paginas');
+			}
+			infiniteScroll.complete();
+		}, 500);
 	}
 }

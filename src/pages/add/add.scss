@@ -70,7 +70,7 @@ page-add {
 				position: absolute;
 				top: 0px;
 				right: 0px;
-				font-size: 20px;
+				font-size: 15px;
 			}
 		}
 		.transac-title{ color: white;font-size: 1.1em;margin: 10px 0px;text-align:center;}
@@ -113,5 +113,14 @@ page-add {
 		.tabbar{
 			opacity:1;
 		}
+	}
+	.refresh{
+		height: 60vh !important;
+	}
+	.adelante{
+		font-size: 18px;
+	}
+	.font-add{
+		font-size: 15px;
 	}
 }

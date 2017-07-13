@@ -2,14 +2,14 @@
     	<p class="m-top">Datos personales</p>
     <form (ngSubmit)="submit(f.value)" #f="ngForm">
 	<fieldset class="content">
-            <legend>
-                <img src={{getArray[0].images}}>
+            <legend (click)="getPicture()">
+                <img [(src)]="user.img">
             </legend>
             <ion-list>
                 <ion-grid class="editUser">
                     <ion-row>
                         <ion-col col-2 text-center>
-                            <ion-icon name="people"></ion-icon>
+                            <ion-icon name="icon-usuario"></ion-icon>
                         </ion-col>
                         <ion-col col-10>
                             <ion-item>                                
@@ -19,7 +19,7 @@
                     </ion-row>
                     <ion-row>
                         <ion-col col-2 text-center>
-                            <ion-icon name="ios-call-outline"></ion-icon>
+                            <ion-icon name="icon-telefono"></ion-icon>
                         </ion-col>
                         <ion-col col-10>
                             <ion-item>
@@ -29,7 +29,7 @@
                     </ion-row>
                     <ion-row>
                         <ion-col col-2 text-center>
-                            <ion-icon name="ios-key-outline"></ion-icon>
+                            <ion-icon name="icon-candado"></ion-icon>
                         </ion-col>
                         <ion-col col-10>
                             <ion-item>
@@ -38,7 +38,18 @@
                         </ion-col>
                     </ion-row>
                     <ion-row>
-                        <input type="hidden" [(ngModel)]="user._id" name="_id">
+                        <ion-col col-2 text-center>
+                            <ion-icon name="icon-candado"></ion-icon>
+                        </ion-col>
+                        <ion-col col-10>
+                            <ion-item>
+                                <ion-input type="number" placeholder="Confirmar" [(ngModel)]="confirPassword" name="password" max="4" (ionChange)="confirmPass($event)"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <input type="hidden" [(ngModel)]="user._id" name="_id"/>
+                        <input type="hidden" [(ngModel)]="user.img" name="img" />
                     </ion-row>
                 </ion-grid>
             </ion-list>
@@ -48,6 +59,4 @@
         
 	</div>
     </form>
-    <button ion-button  (click)="camara()">Toma una foto</button>
-    <img [src]="image" *ngIf="image" />
 </ion-content>

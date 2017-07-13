@@ -16,7 +16,7 @@ export class UserPage {
 	public valTransaction: number;
 	public dateEndt: any;
 	constructor(public navCtrl: NavController, public prvLogin: LoginProvider, public popoverCtrl: PopoverController) {
-		this.prvLogin.getTransaction().subscribe(data => {
+		this.prvLogin.getTransaction(1).subscribe(data => {
 			this.valTransaction = data.results.length
 		});
 		this.prvLogin.currentUser().then((data) => {

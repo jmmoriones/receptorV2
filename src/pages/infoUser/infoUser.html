@@ -1,6 +1,6 @@
 <ion-content>
 	<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
-		<ion-icon name="more"></ion-icon>
+		<ion-icon name="icon-puntos"></ion-icon>
 	</button>
 	<p class="m-top title">Datos Generales</p>
 	<fieldset class="fieldset" *ngFor=" let user of infoUser">
@@ -8,25 +8,27 @@
 			<img src="{{user.images}}" alt="">
 		</legend>
 		<p class="title">{{user.name}}</p>
-		<p><ion-icon name="person"></ion-icon> Receptor</p>
+		<p><ion-icon name="icon-usuario"></ion-icon> Receptor</p>
 		<ion-list>
 			<p class="hide">{{user.id}}</p>
 			<ion-grid>
 				<ion-row>
-					<ion-col col-2 text-center><ion-icon name="ios-call-outline" class="f22"></ion-icon></ion-col>
-					<ion-col col-10><span *ngIf="user.phone == null ">00000</span>
-				<span *ngIf="user.phone != null ">{{user.phone}}</span></ion-col>
+					<ion-col col-2 text-center><ion-icon name="icon-telefono" class="f22"></ion-icon></ion-col>
+					<ion-col col-10>
+						<span *ngIf="user.phone == null ">00000</span>
+						<span *ngIf="user.phone != null ">{{user.phone}}</span>
+					</ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col col-2 text-center><ion-icon name="ios-at-outline" class="f22"></ion-icon></ion-col>
+					<ion-col col-2 text-center><ion-icon name="icon-arroba" class="f22"></ion-icon></ion-col>
 					<ion-col col-10><span>{{user.email}}</span></ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col col-2 text-center><ion-icon name="ios-add-outline" class="f22"></ion-icon></ion-col>
+					<ion-col col-2 text-center><ion-icon name="icon-agregar" class="f22"></ion-icon></ion-col>
 					<ion-col col-10><span>{{valTransaction}} Transacciones</span></ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col col-2 text-center><ion-icon name="ios-calendar-outline" class="f22"></ion-icon></ion-col>
+					<ion-col col-2 text-center><ion-icon name="icon-calendario" class="f22"></ion-icon></ion-col>
 					<ion-col col-10><span>Ultima transaccion</span></ion-col>
 				</ion-row>
 			</ion-grid>

@@ -31,8 +31,12 @@
 			<ion-input type="text" name='finca' [ngModel]='user.finca' required></ion-input>
     	</ion-item>
 		<ion-item>
+			<a ion-button (click)="getPhoto()">Tomar foto</a>
+		</ion-item>
+		<ion-item>
     		<button ion-button block type="submit" color="secondary" [disabled]="!f.valid">Enviar</button>
   		</ion-item>
+		  <input type="hidden" [(ngModel)]="user.img" name="img"/>
   	</ion-list>
 	
   

@@ -6,7 +6,7 @@ page-user{
 			position: absolute;
 			top: 0px;
 			right: 0px;
-			font-size: 20px;
+			font-size: 15px;
 			box-shadow: inherit !important;
 			&:hover{
 				background-color: inherit;	
@@ -50,6 +50,7 @@ page-user{
 			img{
 				width: 100px;
 				height: 100px;
+				border-radius: 50%;
 			}
 		}
 		ion-item{

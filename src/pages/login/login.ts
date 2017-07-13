@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController, ActionSheetController  } from 'ionic-angular';
 
 //Provider
-import { LoginProvider } from '../../providers/login';
+import { LoginProvider } from '../../providers/login'
+
 import {HomePage} from '../home/home';
 
 /**
@@ -97,4 +98,5 @@ export class Login {
     this.hidePass = false;
     this.repOne = {name:"Seleccione un usuario", img:"./assets/images/avatar-user.png"};
   }
+
 }

@@ -3,6 +3,7 @@ import { NavController,AlertController, ActionSheetController,NavParams  } from 
 import { MorePage } from '../more/more';
 //Provider
 import { LoginProvider } from '../../providers/login';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the Login page.
@@ -16,9 +17,9 @@ import { LoginProvider } from '../../providers/login';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-   public user : any = {email: null,cedula:null,name:null};
+   public user : any = {email: null,cedula:null,name:null, img:null};
    public pdf417:any;
-  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public loginPro: LoginProvider, public actionSheetCtrl: ActionSheetController,private navParams: NavParams) {
+  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public loginPro: LoginProvider, public actionSheetCtrl: ActionSheetController,private navParams: NavParams, private camera: Camera) {
     this.pdf417 = navParams.get('text');
     console.log(this.pdf417);
   }
@@ -44,4 +45,24 @@ export class RegisterPage {
     });
 
   }
+
+  getPhoto(){
+      let options: CameraOptions = {
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: 0,
+        correctOrientation: true,
+        quality: 100,
+        saveToPhotoAlbum: true,
+        targetWidth: 300,
+        targetHeight: 300,
+        allowEdit: false
+      }
+		this.camera.getPicture( options )
+			.then(imageData => {
+				this.user.img = `data:image/jpeg;base64,${imageData}`;
+			}).catch(error =>{
+				console.error( error );
+			});
+  }
+
 }

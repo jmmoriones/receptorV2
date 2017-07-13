@@ -5,11 +5,16 @@
 			<ion-grid>
 				<ion-row>
 					<ion-col col-11>
-						<ion-searchbar (ionInput)="getItems($event)" type="number" placeholder="Buscar por cedula"></ion-searchbar>
+						<!--<form (ngSubmit)="searchUsersFn()">-->
+							<ion-searchbar type="number" name="buscador"  placeholder="Buscar" [(ngModel)]="searchQuery" (input)="searchUsersFn()"></ion-searchbar>
+							<!--<button ion-button>Buscar
+								<ion-icon name="icon-buscador"></ion-icon>
+							</button>-->
+						<!--</form>-->
 					</ion-col>
 					<ion-col col-1>
 						<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
-							<ion-icon name="more"></ion-icon>
+							<ion-icon name="icon-puntos"></ion-icon>
 						</button>
 						
 					</ion-col>
@@ -17,24 +22,32 @@
 			</ion-grid>
 		</div>
 	</div>
-	<p class="title not-search text-center">Lista de productores</p>
+	<p class="title not-search text-center">Seleccione un usuario para crear una nueva transacción</p>
 	<div class="none-bg">
 		<div *ngIf="users.length < 1">
 			<p class="white text-center">El productor no se encuentra registrado o el número de cédula es erróneo</p>
 		</div>
 		<ion-list>
-			<ion-item *ngFor="let user of users">
-				<ion-avatar item-left>
-					<img *ngIf="user.img != null" [src]="user.img">
-					<img *ngIf="user.img == null" src="./assets/images/avatar-user.png">
-				</ion-avatar>
-				<h2 class="title">{{user.name}}</h2>
-				<p>C.C: {{user.cedula}}</p>
-				<p><ion-icon name="calendar"></ion-icon> {{user.created_at | date:'medium'}}</p>
-				<button class="productor-arrow" (click)="goUserTransaction(user)">
-					<ion-icon name="ios-arrow-forward-outline"></ion-icon>
-				</button>
-			</ion-item>
+			<div>
+				<ion-item *ngFor="let user of users">
+					<ion-avatar item-left>
+						<img *ngIf="user.img != null" [src]="user.img">
+						<img *ngIf="user.img == null" src="./assets/images/avatar-user.png">
+					</ion-avatar>
+					<h2 class="title">{{user.name}}</h2>
+					<p>C.C.  {{user.cedula}}</p>
+					<p><ion-icon name="icon-calendario"></ion-icon>&nbsp;&nbsp;{{user.created_at | date:'medium'}}</p>
+					<button class="productor-arrow" (click)="goUserTransaction(user)">
+						<ion-icon name="icon-adelante" class="adelante"></ion-icon>
+					</button>
+				</ion-item>
+			</div>
+			<!--<div *ngIf="ocultarDiv == false">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi nisi laboriosam praesentium harum, repellat fugit quos dolorem, error animi veritatis amet, dolore. Officiis corporis rerum nam, soluta repellat praesentium ipsam.</p>
+			</div>-->
 		</ion-list>
+		<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+			<ion-infinite-scroll-content></ion-infinite-scroll-content>
+		</ion-infinite-scroll>
 	</div>
 </ion-content>

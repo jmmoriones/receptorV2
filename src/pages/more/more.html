@@ -1,6 +1,6 @@
 <ion-content class="content-more">
 	<button ion-button icon-only (click)="presentPopover($event)" class="pop-btn">
-		<ion-icon name="more"></ion-icon>
+		<ion-icon name="icon-puntos"></ion-icon>
 	</button>
 	<ion-item class="user-info">
 		<ion-list>
@@ -11,19 +11,19 @@
 				</ion-avatar>
 				<h2 text-uppercase>{{transaction['user'].name}}</h2>
 				<p>C.C. {{transaction['user'].cedula}}</p>
-				<p><ion-icon name="eye"></ion-icon> {{transaction['user'].cafe}}</p>
+				<p><ion-icon name="icon-cafe"></ion-icon> {{transaction['user'].cafe}}</p>
 			</ion-item>
 		</ion-list>
 	</ion-item>
 	<form (ngSubmit)="submit(f.value)" #f="ngForm" >
 	<ion-list class="data-complementation">
 		<h4 text-uppercase class="padd-left title">Datos para complementar</h4>
-		<p class="hour-date"><ion-icon name="calendar"></ion-icon> {{transaction['user'].created_at | date:'medium'}}</p>
+		<p class="hour-date"><ion-icon name="icon-calendario"></ion-icon> {{transaction['user'].created_at | date:'medium'}}</p>
 		<ion-item>
 			<ion-input type="number" name="kilograms" placeholder="Peso en kilogramos" class="border-input" [(ngModel)]='transaction.kilograms'></ion-input> <span class="title">Kilogramos</span>
 		</ion-item>
 
-		<h4 text-uppercase class="padd-left title">Tipo de empaque y peso</h4>
+		<h4 text-uppercase class="padd-left title">Cantidad por empaque</h4>
 		<ion-list class="w30">
 			<ion-item>
 				<ion-label>Estopa</ion-label>
@@ -41,7 +41,7 @@
 		<ion-item class="select-zona">
 			
 			<ion-label>
-				<ion-icon name="pin" class="f22"></ion-icon>
+				<ion-icon name="icon-zona" class="f22"></ion-icon>
 			</ion-label>
 			<ion-select name="zona" [(ngModel)]="transaction.zona" class="white" placeholder="Zona">
 				<ion-option value="z1" value="zona 1">Zona 1</ion-option>
